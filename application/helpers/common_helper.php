@@ -15,14 +15,14 @@ date_default_timezone_set("PRC");
  * 
  * 验证是否登录  后台验证
  */
-function islogin(){
+/* function islogin(){
 	
 	$CI =& get_instance();
 	
 	if($CI->session->userdata('islogin') == false){
-		redirect("zkadmin/login");
+		redirect("admin/login");
 	}
-}
+} */
 
 /**
  * 
