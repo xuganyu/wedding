@@ -1,0 +1,117 @@
+/*
+ * This is an example configuration for a typical onecloud application.
+ */
+@class: onecloud.core.facet.web.share.XNodeConf
+{
+	[general]
+	            oaid: 2756_0068_1072_3106
+				name: <string>?
+		    password: <string>?
+	       ecosystem: <ecosystem>?
+	schema-directory: <string:$@DIRECTORY/../schema>
+	   src-directory: <string:$@DIRECTORY/../src>
+	          secure: <bool:false>
+
+    [web]
+        session-serial: java-default
+    [apache_httpd_conf]
+        document_root: /webcontent
+        
+
+	[xnode]
+	access-control: <path-array>
+	{
+		   exclude: <path-array>
+		allow-null: <bool>
+		      deny: <oaid-array>
+
+		allow: <oaid-array>
+		{
+			 time: <time-range>
+			 read: <bool>
+			write: <bool>
+		}
+	}
+
+	scalability: <path-array>
+	{
+		     exclude: <path-array>
+		availability: <enum>
+		    topology: <enum>
+	}
+
+	[ocean]	
+	access-control: sampledb.*
+	{
+		allow:2756_0068_1072_3106
+		{
+			 @use: authentication
+			 read: true
+			write: true
+		}
+
+		deny: <oaid-array>
+		@use: authentication
+	}
+	url ?sharding=true,rw= true.
+	scalability: <pattern-array>
+	{
+		availability: <enum>
+		    topology: <enum>
+		    mode: verticalsharding()/common 1m,1 slave/rw -> 1master,2 slave
+	}
+
+	[bamboo]
+	      machine: <int>
+	  task-server: <enum>
+	response-time: <enum>
+	 input-stream: <string>
+
+	flash-href: /xxx/*.flv
+	{
+		@recursive: outer
+
+		@switch: cdn
+		{
+			@case: chinacache
+			{
+				 payment: <enum>
+				location: <string>
+			}
+
+			@case: google
+			{
+				time: <int>
+			}
+		}
+
+		@switch: server
+		{
+			@case: fms
+			{
+				adaptive-streaming: <bool>
+			}
+
+			@case: red5
+			{
+				root: <string>
+			}
+		}
+	}
+
+	access-control : <pattern-list>
+	{
+		@use : authentication
+		allow: <user>
+		{
+			 read: <bool:true>
+			write: <bool:true>
+		}
+	}
+
+	protocol-control : <pattern-list>
+	{
+		use-http-only : false
+	}
+
+}
