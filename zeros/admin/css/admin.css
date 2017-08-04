@@ -17,7 +17,7 @@ ul,li{ list-style-type:none;}
 .loginbox { background:url(../images/tmbg-white.png); border:0px;}
 /********头部******/
 .header{height:70px; overflow:hidden; background:url(../images/bg.jpg) no-repeat 0 -1000px; }
-.head-l{ float:left; margin-top:17px; margin-left:15px; }
+.head-l{ float:right; margin-top:18px; margin-right:25px; }
 .head-l .button{ padding:8px 15px;}
 .head-l .bg-blue:hover{ background-color:#03b6fd;}
 .leftnav{width:180px; height:100%; position:fixed; top:70px; left:0px; overflow: auto;}
