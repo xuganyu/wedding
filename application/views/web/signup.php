@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<link rel="shortcut icon" href="<?php echo base_url('zeros/web/images/icon.png'); ?>" type="image/x-icon" />
 		<link href="<?php echo base_url('zeros/web/css/snow.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 		<link href="<?php echo base_url('zeros/web/css/sign.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 		
@@ -21,226 +22,474 @@
 		  <div class="snow background"></div>
 		  <div class="snow background layered"></div>
 		</div>
-		<!-- 导航栏 -->
-		<div class="sign-top-buttons">
-		<a href="<?php echo site_url('web/signin'); ?>">登录</a><a href="<?php echo site_url('web/signup'); ?>" class="sign-active">注册</a>
-		</div>
-		<br>
-		<br>
-		<!-- 注册信息 -->
-		<div class="middle-part">
-			<div class="reg-box">
-				<form id="registerForm" action="#" method="post">
-				<!--  隐藏域 -->
-				<input type="hidden" name="isReliveCardMember" value="-1">
-				<input id="doublemail" type="hidden" value="">
-				<input id="invalidateMobile" type="hidden" value="">
-
-				<input type="hidden" name="snsType" value="">
-				<input name="copyTag" type="hidden" value="">
-				<input id="whichTV" name="whichTV" type="hidden" value="null">
-				<input id="regType" name="regType" type="hidden" value="phone">
-
-
-				<input id="hideMobile" name="hideMobile" type="hidden" value="">
-				<input id="viewMemberId" name="viewMemberId" value="" type="hidden">
-				<!-- 新旧注册页分流 -->
-				<input type="hidden" name="regFlag" value="">
-				<!--  隐藏域 -->
-
-				 <h2>60秒完成注册，幸福一辈子！</h2>
-				<!-- 性别 {-->
-				<div class="col-form">
-					<label>我的性别：</label>
-					<div class="za-radio" id="SexRadio">
-						<input type="radio" name="baseInfo.sex" value="0" id="sex_1" checked=""><label for="sex_1" class="label_m">男</label>
-						<input type="radio" name="baseInfo.sex" value="1" id="sex_0"><label for="sex_0" class="label_w">女</label>
-					</div>
+		<div class="sign-header">
+			<div class="sign-frameW">
+				<a class="sign-logo" href="#" title="网站名"></a>
+				<div class="ad-word"><p>网站名</p><div class="ad-word-short">shortname</div></div>
+				<div class="sign-tools">
+					<a href="index.html">登录</a><a href="signup.html" class="active">注册</a>
 				</div>
-				<!-- 性别 {-->
-				<!-- 生日 {-->
-				<div class="col-form">
-					<label>出生日期：</label>
-					<div class="za-item-selector" id="BirthdaySelector">
-						<dl class="year-selector">
-							<dt><em class="cData"></em><em class="iName">年</em></dt>
-							<dd style="display: none;"></dd>
-						</dl>
-						<dl class="month-selector">
-							<dt><em class="cData"></em><em class="iName">月</em></dt>
-							<dd style="display: none;">
-								<input id="BirthMonth" value="-1" type="hidden" name="dateForm.month">
-							<p><a data-value="1" href="javascript:;">1</a><a data-value="2" href="javascript:;">2</a><a data-value="3" href="javascript:;">3</a><a data-value="4" href="javascript:;">4</a><a data-value="5" href="javascript:;">5</a><a data-value="6" href="javascript:;">6</a><a data-value="7" href="javascript:;">7</a><a data-value="8" href="javascript:;">8</a><a data-value="9" href="javascript:;">9</a><a data-value="10" href="javascript:;">10</a><a data-value="11" href="javascript:;">11</a><a data-value="12" href="javascript:;">12</a></p></dd>
-						</dl>
-						<dl class="day-selector" style="position: relative;">
-							<dt><em class="cData"></em><em class="iName">日</em></dt>
-							<dd style="display: none;"></dd>
-						</dl>
-						<b class="check_tip"></b>
-					</div>
-				</div>
-				<!-- 生日 } -->
-				<!-- 地区 { -->
-				<div class="col-form">
-					<label>工作地区：</label>
-					<div class="za-item-selector" id="DistrictSelector">
-						<dl class="province-selector">
-							<dt><em class="cData"></em><em class="iName">省</em></dt>
-							<dd style="display: none;">
-								<input value="10101000" type="hidden" name="areaForm.workProvince">
-							<span><a href="javascript:;" data-value="10102000">北京</a></span><span><a href="javascript:;" data-value="10104000">天津</a></span><span><a href="javascript:;" data-value="10103000">上海</a></span><span><a href="javascript:;" data-value="10105000">重庆</a></span><span><a href="javascript:;" data-value="10101000">广东</a></span><div class="border"></div><span><a href="javascript:;" data-value="10118000">江苏</a></span><span><a href="javascript:;" data-value="10131000">浙江</a></span><span><a href="javascript:;" data-value="10127000">四川</a></span><span><a href="javascript:;" data-value="10107000">福建</a></span><span><a href="javascript:;" data-value="10124000">山东</a></span><span><a href="javascript:;" data-value="10115000">湖北</a></span><span><a href="javascript:;" data-value="10112000">河北</a></span><span><a href="javascript:;" data-value="10125000">山西</a></span><span><a href="javascript:;" data-value="10121000">内蒙古</a></span><span><a href="javascript:;" data-value="10120000">辽宁</a></span><span><a href="javascript:;" data-value="10117000">吉林</a></span><span><a href="javascript:;" data-value="10114000">黑龙江</a></span><span><a href="javascript:;" data-value="10106000">安徽</a></span><span><a href="javascript:;" data-value="10119000">江西</a></span><span><a href="javascript:;" data-value="10113000">河南</a></span><span><a href="javascript:;" data-value="10116000">湖南</a></span><span><a href="javascript:;" data-value="10109000">广西</a></span><span><a href="javascript:;" data-value="10111000">海南</a></span><span><a href="javascript:;" data-value="10110000">贵州</a></span><span><a href="javascript:;" data-value="10130000">云南</a></span><span><a href="javascript:;" data-value="10128000">西藏</a></span><span><a href="javascript:;" data-value="10126000">陕西</a></span><span><a href="javascript:;" data-value="10108000">甘肃</a></span><span><a href="javascript:;" data-value="10123000">青海</a></span><span><a href="javascript:;" data-value="10122000">宁夏</a></span><span><a href="javascript:;" data-value="10129000">新疆</a></span><div class="border"></div></dd>
-						</dl>
-						<span class="label"></span>
-						<dl class="city-selector">
-							<dt><em class="cData"></em><em class="iName">市</em></dt>
-							<dd style="display: none;">
-								<input value="10101014" type="hidden" name="areaForm.workCity">
-								
-							<span><a href="javascript:;" data-value="10101002">广州</a></span><span><a href="javascript:;" data-value="10101201">深圳</a></span><span><a href="javascript:;" data-value="10101015">韶关</a></span><span><a href="javascript:;" data-value="10101005">珠海</a></span><span><a href="javascript:;" data-value="10101013">汕头</a></span><span><a href="javascript:;" data-value="10101003">佛山</a></span><span><a href="javascript:;" data-value="10101016">江门</a></span><span><a href="javascript:;" data-value="10101004">湛江</a></span><span><a href="javascript:;" data-value="10101012">茂名</a></span><span><a href="javascript:;" data-value="10101006">肇庆</a></span><span><a href="javascript:;" data-value="10101008">惠州</a></span><span><a href="javascript:;" data-value="10101014">梅州</a></span><span><a href="javascript:;" data-value="10101028">汕尾</a></span><span><a href="javascript:;" data-value="10101023">河源</a></span><span><a href="javascript:;" data-value="10101022">阳江</a></span><span><a href="javascript:;" data-value="10101018">清远</a></span><span><a href="javascript:;" data-value="10101007">东莞</a></span><span><a href="javascript:;" data-value="10101011">中山</a></span><span><a href="javascript:;" data-value="10101020">潮州</a></span><span><a href="javascript:;" data-value="10101026">揭阳</a></span><span><a href="javascript:;" data-value="10101068">云浮</a></span></dd>
-						</dl>
-						<span class="label"></span>
-						<dl class="county-selector">
-							<dt><em class="cData"></em><em class="iName">区</em></dt>
-							<dd style="display: none;">
-								<input value="-1" type="hidden" name="">
-								
-							<span><a href="javascript:;" data-value="10101225">市辖区</a></span><span><a href="javascript:;" data-value="10101074">梅县</a></span><span><a href="javascript:;" data-value="10101076">大埔</a></span><span><a href="javascript:;" data-value="10101048">丰顺</a></span><span><a href="javascript:;" data-value="10101082">五华</a></span><span><a href="javascript:;" data-value="10101087">平远</a></span><span><a href="javascript:;" data-value="10101043">蕉岭</a></span><span><a href="javascript:;" data-value="10101025">兴宁</a></span></dd>
-						</dl>
-						<b class="check_tip"></b>
-					</div>
-
-				</div>
-				<!-- 地区 { -->
-
-				<!-- 姻姻 {-->
-				<div class="col-form">
-					<label>婚姻状况：</label>
-					<div class="za-radio marry-radio" id="MaritalStatus">
-						<input type="radio" name="baseInfo.marriage" value="1" id="mar_0" checked=""><label for="mar_0">未婚</label>
-						<input type="radio" name="baseInfo.marriage" value="3" id="mar_1"><label for="mar_1">离异</label>
-						<input type="radio" name="baseInfo.marriage" value="4" id="mar_2"><label for="mar_2">丧偶</label>
-					</div>
-				</div>
-
-				<input class="reg-btn" type="button" value="">
-				</form>
 			</div>
 		</div>
+		<!-- 导航栏 -->
+		<!-- <div class="sign-top-buttons">
+		<a href="index.html">登录</a><a href="signup.html" class="sign-active">注册</a>
+		</div> 
+		<br>
+		<br> -->
+		<!-- 注册信息 -->
+		<div class="middle-part">
+			<div class="reg-box-left">
+				<h1 class="reg-title">60秒完成注册，幸福一辈子！</h1>
+				<div class="reg-title-tip">请认真填写真实信息，即将为您开启寻爱之旅。</div>
+				<span class="reg-title-left"></span>
+				<span class="reg-title-right"></span>
+				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post">
+				<div class="reg-form">
+					<!-- 性别 -->
+					<div class="col-form">
+						<label>我的性别：</label>
+						<div class="za-radio" id="sex_radio">
+							<input type="radio" name="sex" value="男" id="sex_1" checked=""><label for="sex_1" class="label_m">男</label>
+							<input type="radio" name="sex" value="女" id="sex_0"><label for="sex_0" class="label_w">女</label>
+						</div>
+					</div>
+					<!-- 生日 -->
+					<div class="col-form">
+						<label>出生日期：</label>
+						<div class="za-item-selector" id="birthday_seletor">
+							<dl class="year-selector">
+								<dt><em class="cData"></em><em class="iName">年</em></dt>
+								<input id="birth_year_input" value="" type="hidden" name="birth_year">
+								<dd style="display: none;"></dd>
+							</dl>
+							<dl class="month-selector">
+								<dt><em class="cData"></em><em class="iName">月</em></dt>
+								<input id="birth_month_input" value="" type="hidden" name="birth_month">
+								<dd style="display: none;">
+								<p><a data-value="1" href="javascript:;">1</a><a data-value="2" href="javascript:;">2</a><a data-value="3" href="javascript:;">3</a><a data-value="4" href="javascript:;">4</a><a data-value="5" href="javascript:;">5</a><a data-value="6" href="javascript:;">6</a><a data-value="7" href="javascript:;">7</a><a data-value="8" href="javascript:;">8</a><a data-value="9" href="javascript:;">9</a><a data-value="10" href="javascript:;">10</a><a data-value="11" href="javascript:;">11</a><a data-value="12" href="javascript:;">12</a></p></dd>
+							</dl>
+							<dl class="day-selector" style="position: relative;">
+								<dt><em class="cData"></em><em class="iName">日</em></dt>
+								<input id="birth_date_input" value="" type="hidden" name="birth_date">
+								<dd style="display: none;"></dd>
+							</dl>
+							<b class="check_tip"></b>
+						</div>
+					</div>
+					<!-- 地区 -->
+					<div class="col-form">
+						<label>工作地区：</label>
+						<div class="za-item-selector" id="area_seletor">
+							<dl class="province-selector">
+								<dt><em class="cData"></em><em class="iName">省</em></dt>
+								<input value="" type="hidden" name="province" id="province_input" />
+								<dd style="display: none;">
+								</dd>
+							</dl>
+							<span class="label"></span>
+							<dl class="city-selector">
+								<dt><em class="cData"></em><em class="iName">市</em></dt>
+								<input value="" type="hidden" name="city" id="city_input">
+								<dd style="display: none;">
+    								请选择所在的省份
+								</dd>
+							</dl>
+							<span class="label"></span>
+							<dl class="county-selector">
+								<dt><em class="cData"></em><em class="iName">区</em></dt>
+								<input value="" type="hidden" name="country" id="country_input">
+								<dd style="display: none;">
+    								请选择所在的城市
+								</dd>
+							</dl>
+							<b class="check_tip"></b>
+						</div>
+
+					</div>
+
+					<!-- 姻姻-->
+					<div class="col-form">
+						<label>婚姻状况：</label>
+						<div class="za-radio marry-radio" id="MaritalStatus">
+							<input type="radio" name="marriage" value="未婚" id="mar_0" checked=""><label for="mar_0">未婚</label>
+							<input type="radio" name="marriage" value="离异" id="mar_1"><label for="mar_1">离异</label>
+							<input type="radio" name="marriage" value="丧偶" id="mar_2"><label for="mar_2">丧偶</label>
+						</div>
+					</div>
+					<!-- 身高 -->
+					<div class="col-form">
+						<label>我的身高：</label>
+						<div class="za-item-selector" id="HeightSelector">
+							<input name="height" value="" type="hidden" id="height_input">
+							<dl class="height-selector">
+								<dt><em class="cData"></em><em class="iName"></em></dt>
+								<dd style="display: none;">
+									<ul class="height-list">
+										<li><a href="#" will="130">130厘米</a></li>
+										<li><a href="#" will="131">131厘米</a></li>
+										<li><a href="#" will="132">132厘米</a></li>
+										<li><a href="#" will="133">133厘米</a></li>
+										<li><a href="#" will="134">134厘米</a></li>
+										<li><a href="#" will="135">135厘米</a></li>
+										<li><a href="#" will="136">136厘米</a></li>
+										<li><a href="#" will="137">137厘米</a></li>
+										<li><a href="#" will="138">138厘米</a></li>
+										<li><a href="#" will="139">139厘米</a></li>
+										<li><a href="#" will="140">140厘米</a></li>
+										<li><a href="#" will="141">141厘米</a></li>
+										<li><a href="#" will="142">142厘米</a></li>
+										<li><a href="#" will="143">143厘米</a></li>
+										<li><a href="#" will="144">144厘米</a></li>
+										<li><a href="#" will="145">145厘米</a></li>
+										<li><a href="#" will="146">146厘米</a></li>
+										<li><a href="#" will="147">147厘米</a></li>
+										<li><a href="#" will="148">148厘米</a></li>
+										<li><a href="#" will="149">149厘米</a></li>
+										<li><a href="#" will="150">150厘米</a></li>
+										<li><a href="#" will="151">151厘米</a></li>
+										<li><a href="#" will="152">152厘米</a></li>
+										<li><a href="#" will="153">153厘米</a></li>
+										<li><a href="#" will="154">154厘米</a></li>
+										<li><a href="#" will="155">155厘米</a></li>
+										<li><a href="#" will="156">156厘米</a></li>
+										<li><a href="#" will="157">157厘米</a></li>
+										<li><a href="#" will="158">158厘米</a></li>
+										<li><a href="#" will="159">159厘米</a></li>
+										<li><a href="#" will="160">160厘米</a></li>
+										<li><a href="#" will="161">161厘米</a></li>
+										<li><a href="#" will="162">162厘米</a></li>
+										<li><a href="#" will="163">163厘米</a></li>
+										<li><a href="#" will="164">164厘米</a></li>
+										<li><a href="#" will="165">165厘米</a></li>
+										<li><a href="#" will="166">166厘米</a></li>
+										<li><a href="#" will="167">167厘米</a></li>
+										<li><a href="#" will="168">168厘米</a></li>
+										<li><a href="#" will="169">169厘米</a></li>
+										<li><a href="#" will="170">170厘米</a></li>
+										<li><a href="#" will="171">171厘米</a></li>
+										<li><a href="#" will="172">172厘米</a></li>
+										<li><a href="#" will="173">173厘米</a></li>
+										<li><a href="#" will="174">174厘米</a></li>
+										<li><a href="#" will="175">175厘米</a></li>
+										<li><a href="#" will="176">176厘米</a></li>
+										<li><a href="#" will="177">177厘米</a></li>
+										<li><a href="#" will="178">178厘米</a></li>
+										<li><a href="#" will="179">179厘米</a></li>
+										<li><a href="#" will="180">180厘米</a></li>
+										<li><a href="#" will="181">181厘米</a></li>
+										<li><a href="#" will="182">182厘米</a></li>
+										<li><a href="#" will="183">183厘米</a></li>
+										<li><a href="#" will="184">184厘米</a></li>
+										<li><a href="#" will="185">185厘米</a></li>
+										<li><a href="#" will="186">186厘米</a></li>
+										<li><a href="#" will="187">187厘米</a></li>
+										<li><a href="#" will="188">188厘米</a></li>
+										<li><a href="#" will="189">189厘米</a></li>
+										<li><a href="#" will="190">190厘米</a></li>
+										<li><a href="#" will="191">191厘米</a></li>
+										<li><a href="#" will="192">192厘米</a></li>
+										<li><a href="#" will="193">193厘米</a></li>
+										<li><a href="#" will="194">194厘米</a></li>
+										<li><a href="#" will="195">195厘米</a></li>
+										<li><a href="#" will="196">196厘米</a></li>
+										<li><a href="#" will="197">197厘米</a></li>
+										<li><a href="#" will="198">198厘米</a></li>
+										<li><a href="#" will="199">199厘米</a></li>
+										<li><a href="#" will="200">200厘米</a></li>
+										<li><a href="#" will="201">201厘米</a></li>
+										<li><a href="#" will="202">202厘米</a></li>
+										<li><a href="#" will="203">203厘米</a></li>
+										<li><a href="#" will="204">204厘米</a></li>
+										<li><a href="#" will="205">205厘米</a></li>
+										<li><a href="#" will="206">206厘米</a></li>
+										<li><a href="#" will="207">207厘米</a></li>
+										<li><a href="#" will="208">208厘米</a></li>
+										<li><a href="#" will="209">209厘米</a></li>
+										<li><a href="#" will="210">210厘米</a></li>
+										<li><a href="#" will="211">211厘米</a></li>
+										<li><a href="#" will="212">212厘米</a></li>
+										<li><a href="#" will="213">213厘米</a></li>
+										<li><a href="#" will="214">214厘米</a></li>
+										<li><a href="#" will="215">215厘米</a></li>
+										<li><a href="#" will="216">216厘米</a></li>
+										<li><a href="#" will="217">217厘米</a></li>
+										<li><a href="#" will="218">218厘米</a></li>
+										<li><a href="#" will="219">219厘米</a></li>
+										<li><a href="#" will="220">220厘米</a></li>
+										<li><a href="#" will="221">221厘米</a></li>
+										<li><a href="#" will="222">222厘米</a></li>
+										<li><a href="#" will="223">223厘米</a></li>
+										<li><a href="#" will="224">224厘米</a></li>
+										<li><a href="#" will="225">225厘米</a></li>
+										<li><a href="#" will="226">226厘米</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div id="HeightRulerCheck" class="check-form" style="display: none;">
+							<i></i><span>* 注册后不可改</span><b></b><em></em>
+						</div>
+					</div>
+					<!-- 学历 -->
+					<div class="col-form">
+						<label>我的学历：</label>
+						<div class="za-item-selector" id="EducationSelector">
+							<input name="education" value="" type="hidden" id="education_input">
+							<dl class="education-selector">
+								<dt><em class="cData"></em><em class="iName"></em></dt>
+								<dd style="display: none;">
+									<ul class="education-list">
+										<li><a href="###" will="10">高中中专及以下</a></li>
+										<li><a href="###" will="20">大专</a></li>
+										<li><a href="###" will="30">本科</a></li>
+										<li><a href="###" will="40">双学士</a></li>
+										<li><a href="###" will="50">硕士</a></li>
+										<li><a href="###" will="60">博士</a></li>
+										<li><a href="###" will="70">博士后</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- 月薪 -->
+					<div class="col-form">
+						<label>我的月薪：</label>
+						<div class="za-item-selector" id="SalarySelector">
+							<input name="salary" value="" type="hidden" id="salary_input">
+							<dl class="salary-selector">
+								<dt><em class="cData"></em><em class="iName"></em></dt>
+								<dd style="display: none;">
+									<ul class="salary-list">
+										<li><a href="###" will="10">2000元以下</a></li>
+										<li><a href="###" will="20">2000-5000元</a></li>
+										<li><a href="###" will="30">5000-10000元 </a></li>
+										<li><a href="###" will="40">10000-20000元 </a></li>
+										<li><a href="###" will="50">20000-50000元 </a></li>
+										<li><a href="###" will="60">50000元以上 </a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="form-line"></div>
+					<!-- 其他 -->
+					<div class="col-form">
+						<label>我的昵称：</label>
+						<div class="za-item-selector">
+							<input name="nickname" type="text" id="nickname_input">
+						</div>
+					</div>
+					<div class="col-form">
+						<label>我的手机号：</label>
+						<div class="za-item-selector">
+							<input name="phone" type="text" id="phone_input">
+						</div>
+					</div>
+					<div class="col-form">
+						<label>我的密码：</label>
+						<div class="za-item-selector">
+							<input name="password" type="password" id="password_input">
+						</div>
+					</div>
+					<div class="col-form">
+						<label>确认密码：</label>
+						<div class="za-item-selector">
+							<input name="repassword" type="password" id="repassword_input">
+						</div>
+					</div>
+					<br>
+					<input class="reg-btn" type="submit" value="免费注册">
+				</div>
+				</form>
+			</div>
+			<div class="reg-box-right"><br><br><p>这里可以放照片、<br>广告或者宣传语</p></div>
+		</div>
 		
-		<!--  -->
+		<!-- footer -->
+		<div class="footer">
+			<div class="footer_01">
+				<div class="footer3">
+				  <p>版权所有 © 20xx-20xx 北京xxxx有限公司</p>
+				</div>
+			</div>
+		</div>
 		<script>
 		$(function(){
 			//域点击
 			$(document).click(function(e){
-				var dom = $(e.target).parent();
-				if($(e.target).hasClass('iName') || $(e.target).hasClass('cData')){
-					dom = $(e.target).parent().parent();
-				}
-				//选年
-				var year_flag = $(dom).hasClass('year-selector');
-				if(year_flag){
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.year-selector').removeClass('za-item-selector-hover');
-					$('.year-selector').find('dd').hide();
-					$('.year-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('year-selector')){
-					$('.year-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
-				}
-				
-				//选月
-				var month_flag = $(dom).hasClass('month-selector');
-				if(month_flag){
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.month-selector').removeClass('za-item-selector-hover');
-					$('.month-selector').find('dd').hide();
-					$('.month-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('month-selector')){
-					$('.month-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
-					var sel_year = parseInt($('.year-selector').find('dt').find("em[class='cData']").html());
-					sel_year = isNaN(sel_year) ? new Date().getFullYear() : sel_year;
-					var odate = new Date(sel_year, $(e.target).data('value'), 0);
-					data_loading.day(odate.getDate());
-				}
-				
-				//选日
-				var day_flag = $(dom).hasClass('day-selector');
-				if(day_flag){
-					var sel_year = parseInt($('.year-selector').find('dt').find("em[class='cData']").html());
-					sel_year = isNaN(sel_year) ? new Date().getFullYear() : sel_year;
-					var sel_month = parseInt($('.month-selector').find('dt').find("em[class='cData']").html());
-					sel_month = isNaN(sel_month) ? new Date().getMonth()+1 : sel_month;
-					var odate = new Date(sel_year, sel_month, 0);
-					data_loading.day(odate.getDate());
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.day-selector').removeClass('za-item-selector-hover');
-					$('.day-selector').find('dd').hide();
-					$('.day-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('day-selector')){
-					$('.day-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
-				}
-				
-				//选省
-				var province_flag = $(dom).hasClass('province-selector');
-				if(province_flag){
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.province-selector').removeClass('za-item-selector-hover');
-					$('.province-selector').find('dd').hide();
-					$('.province-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('province-selector')){
-					$('.province-selector').find('dt').find("em[class='iName']").html('');
-					$('.province-selector').find('dt').find("em[class='cData']").html($(e.target).html());
-					var province_id = $(e.target).data('value');
-					data_loading.city(province_id);
-				}
-				
-				//选市
-				var city_flag = $(dom).hasClass('city-selector');
-				if(city_flag){
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.city-selector').removeClass('za-item-selector-hover');
-					$('.city-selector').find('dd').hide();
-					$('.city-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('city-selector')){
-					$('.city-selector').find('dt').find("em[class='iName']").html('');
-					$('.city-selector').find('dt').find("em[class='cData']").html($(e.target).html());
-					var city_id = $(e.target).data('value');
-					data_loading.county(city_id);
-				}
-				
-				//选区
-				var county_flag = $(dom).hasClass('county-selector');
-				if(county_flag){
-					$(dom).addClass('za-item-selector-hover');
-					$(dom).find('dd').show();
-					$(dom).css('position', 'relative');
-				}else{
-					$('.county-selector').removeClass('za-item-selector-hover');
-					$('.county-selector').find('dd').hide();
-					$('.county-selector').css('position', '');
-				}
-				if($(e.target).parent().parent().parent().hasClass('county-selector')){
-					$('.county-selector').find('dt').find("em[class='iName']").html('');
-					$('.county-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+				if(e.which == 1){ //鼠标左键
+    				var dom = $(e.target).parent();
+    				if($(e.target).hasClass('iName') || $(e.target).hasClass('cData')){
+    					dom = $(e.target).parent().parent();
+    				}
+    				//选年
+    				var year_flag = $(dom).hasClass('year-selector');
+    				if(year_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.year-selector').removeClass('za-item-selector-hover');
+    					$('.year-selector').find('dd').hide();
+    					$('.year-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('year-selector')){
+    					$('#birth_year_input').val($(e.target).data('value'));
+    					$('.year-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
+    				}
+    				
+    				//选月
+    				var month_flag = $(dom).hasClass('month-selector');
+    				if(month_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.month-selector').removeClass('za-item-selector-hover');
+    					$('.month-selector').find('dd').hide();
+    					$('.month-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('month-selector')){
+    					$('#birth_month_input').val($(e.target).data('value'));
+    					$('.month-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
+    					$('.day-selector').find('dt').find("em[class='cData']").html('');
+    					var sel_year = parseInt($('.year-selector').find('dt').find("em[class='cData']").html());
+    					sel_year = isNaN(sel_year) ? new Date().getFullYear() : sel_year;
+    					var odate = new Date(sel_year, $(e.target).data('value'), 0);
+    					data_loading.day(odate.getDate());
+    				}
+    				
+    				//选日
+    				var day_flag = $(dom).hasClass('day-selector');
+    				if(day_flag){
+    					var sel_year = parseInt($('.year-selector').find('dt').find("em[class='cData']").html());
+    					sel_year = isNaN(sel_year) ? new Date().getFullYear() : sel_year;
+    					var sel_month = parseInt($('.month-selector').find('dt').find("em[class='cData']").html());
+    					sel_month = isNaN(sel_month) ? new Date().getMonth()+1 : sel_month;
+    					var odate = new Date(sel_year, sel_month, 0);
+    					data_loading.day(odate.getDate());
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.day-selector').removeClass('za-item-selector-hover');
+    					$('.day-selector').find('dd').hide();
+    					$('.day-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('day-selector')){
+    					$('#birth_date_input').val($(e.target).data('value'));
+    					$('.day-selector').find('dt').find("em[class='cData']").html($(e.target).data('value'));
+    				}
+    				
+    				//选省
+    				var province_flag = $(dom).hasClass('province-selector');
+    				if(province_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.province-selector').removeClass('za-item-selector-hover');
+    					$('.province-selector').find('dd').hide();
+    					$('.province-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('province-selector')){
+    					$('#province_input').val($(e.target).html());
+    					$('.province-selector').find('dt').find("em[class='iName']").html('');
+    					$('.province-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    					$('.city-selector').find('dt').find("em[class='cData']").html('');
+    					$('.county-selector').find('dt').find("em[class='cData']").html('');
+    					var province_id = $(e.target).data('value');
+    					data_loading.city(province_id);
+    				}
+    				
+    				//选市
+    				var city_flag = $(dom).hasClass('city-selector');
+    				if(city_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.city-selector').removeClass('za-item-selector-hover');
+    					$('.city-selector').find('dd').hide();
+    					$('.city-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('city-selector')){
+    					$('#city_input').val($(e.target).html());
+    					$('.city-selector').find('dt').find("em[class='iName']").html('');
+    					$('.city-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    					$('.county-selector').find('dt').find("em[class='cData']").html('');
+    					var city_id = $(e.target).data('value');
+    					data_loading.county(city_id);
+    				}
+    				
+    				//选区
+    				var county_flag = $(dom).hasClass('county-selector');
+    				if(county_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.county-selector').removeClass('za-item-selector-hover');
+    					$('.county-selector').find('dd').hide();
+    					$('.county-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().hasClass('county-selector')){
+    					$('#country_input').val($(e.target).html());
+    					$('.county-selector').find('dt').find("em[class='iName']").html('');
+    					$('.county-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    				}
+    				
+    				//身高
+    				var height_flag = $(dom).hasClass('height-selector');
+    				if(height_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.height-selector').removeClass('za-item-selector-hover');
+    					$('.height-selector').find('dd').hide();
+    					$('.height-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().parent().hasClass('height-selector')){
+        				$('#height_input').val($(e.target).attr('will'));
+    					$('.height-selector').find('dt').find("em[class='iName']").html('');
+    					$('.height-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    				}
+    				
+    				//学历
+    				var education_flag = $(dom).hasClass('education-selector');
+    				if(education_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.education-selector').removeClass('za-item-selector-hover');
+    					$('.education-selector').find('dd').hide();
+    					$('.education-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().parent().hasClass('education-selector')){
+    					$('#education_input').val($(e.target).attr('will'));
+    					$('.education-selector').find('dt').find("em[class='iName']").html('');
+    					$('.education-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    				}
+    				
+    				//月薪
+    				var education_flag = $(dom).hasClass('salary-selector');
+    				if(education_flag){
+    					$(dom).addClass('za-item-selector-hover');
+    					$(dom).find('dd').show();
+    					$(dom).css('position', 'relative');
+    				}else{
+    					$('.salary-selector').removeClass('za-item-selector-hover');
+    					$('.salary-selector').find('dd').hide();
+    					$('.salary-selector').css('position', '');
+    				}
+    				if($(e.target).parent().parent().parent().parent().hasClass('salary-selector')){
+    					$('#salary_input').val($(e.target).attr('will'));
+    					$('.salary-selector').find('dt').find("em[class='iName']").html('');
+    					$('.salary-selector').find('dt').find("em[class='cData']").html($(e.target).html());
+    				}
 				}
 			});
 			
@@ -255,7 +504,7 @@
 					var today = new Date();
 					var max_year = today.getFullYear() - 18;
 					var min_year = max_year - 69;
-					var year_html = '<input id="BirthYear" value="-1" name="dateForm.year" type="hidden">', 
+					var year_html = '', 
 						year_html_temp1 = '<i>00后:</i>', year_html_temp2 = '<i>10后:</i>', year_html_temp3 = '<i>20后:</i>', year_html_temp4 = '<i>30后:</i>', year_html_temp5 = '<i>40后:</i>',
 						year_html_temp6 = '<i>50后:</i>', year_html_temp7 = '<i>60后:</i>', year_html_temp8 = '<i>70后:</i>', year_html_temp9 = '<i>80后:</i>', year_html_temp10 = '<i>90后:</i>';
 					for(var iyear=min_year; iyear<=max_year; iyear++){
@@ -328,7 +577,7 @@
 				month: function(){},
 				//整理天数
 				day: function(dnum){
-					var day_html = '<input id="BirthDay" value="-1" name="dateForm.day" type="hidden">';
+					var day_html = '';
 					for(var iday=1; iday<=dnum; iday++){
 						day_html += '<a data-value="' + iday + '" href="javascript:;">' + iday + '</a>';
 					}
@@ -348,7 +597,7 @@
 				},
 				//整理城市
 				city: function(province_id){
-					var city_html = '<input value="10101014" name="areaForm.workCity" type="hidden">';
+					var city_html = '';
 					$.each(china_city, function(ck, cv){
 						if(ck.indexOf(province_id) == 1){
 							if(cv.hasOwnProperty('d')){

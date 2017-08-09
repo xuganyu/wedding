@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('zeros/web/css/jquery.selectlist.css'); ?>" />
 <link href="<?php echo base_url('zeros/web/css/bootstrap.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />

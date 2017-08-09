@@ -20,7 +20,7 @@ function islogin(){
 	$CI =& get_instance();
 	
 	if($CI->session->userdata('islogin') == false){
-		redirect("zkadmin/login");
+		redirect("admin/login");
 	}
 }
 

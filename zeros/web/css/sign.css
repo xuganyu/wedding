@@ -1,7 +1,6 @@
-Ôªø/* Ê≥®ÂÜåÁôªÂΩïÈ°µÈù¢ Ê†∑Âºè */
+/* ◊¢≤·µ«¬º“≥√Ê —˘ Ω */
 body {
-	font-size: 14px;
-	color: #f0f0f0;
+	font: 12px/1.5 tahoma,arial,ÀŒÃÂ;
 }
 
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, form, input, p, img, h6 {
@@ -9,8 +8,16 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, form, input, p, img, h6
     padding: 0;
 }
 
+html .clearfix {
+    display: block;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
 a {
-	color: #f0f0f0;
+	color: #666;
 }
 
 .sign-body {
@@ -24,7 +31,7 @@ a {
 	-o-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
-    background-image: url(../images/banner.jpg);
+    background-color: #f0f0f0;
 	background-position: 0px 0px;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -64,24 +71,44 @@ a {
 }
 
 .middle-part {
-    height: 330px;
-    left: 50%;
-    margin: -165px 0 0 -204px;
-    position: fixed;
-    top: 50%;
     transition: all 0.5s ease-in-out 0s;
-    width: 408px;
     z-index: 1000;
+	padding-bottom: 100px;
+	width: 960px;
+	margin: 0 auto;
+	height: 910px;
 }
 
 .reg-box {
     background: rgba(41, 39, 39, 0.50);
     height: 334px;
-    position: absolute;
     right: 0;
-    width: 408px;
+    width: 880px;
     z-index: 1002;
 	border-radius: 7px;
+}
+.reg-box-left {
+	position: relative;
+	top: 20px;
+	left: 10px;
+	width: 660px;
+	padding-bottom: 100px;
+	border-radius: 2px;
+	background-color: white;
+	box-shadow: 0 0 6px 0 #f1f1f1;
+	float:left;
+}
+.reg-box-right {
+	width: 220px;
+	float: right;
+	background-color: white;
+	position: relative;
+	padding-bottom: 100px;
+	top: 20px;
+	right: 10px;
+	box-shadow: 0 0 6px 0 #f1f1f1;
+	font: 15px/53px 'Microsoft Yahei';
+	color: #666;
 }
 .reg-box h2 {
     border-bottom: 1px solid #d0d0d0;
@@ -91,6 +118,44 @@ a {
     padding: 30px 0 12px;
     text-align: center;
 }
+.reg-title {
+	font: 18px/53px 'Microsoft Yahei';
+	color: #f3316b;
+}
+.reg-title-tip {
+	color: #ff687b;
+	font-size: 12px;
+	height: 37px;
+	line-height: 37px;
+	background-color: #f7f7f7;
+	text-align: center;
+	margin: 0px 30px 0;
+}
+.reg-title-left {
+	top: 8px;
+	left: -9px;
+	width: 84px;
+	height: 42px;
+	background: url(../images/img2.png) no-repeat;
+	position: absolute;
+}
+.reg-title-right {
+	top: 8px;
+	right: -9px;
+	width: 84px;
+	height: 42px;
+	background: url(../images/img2.png) no-repeat -84px 0;
+	position: absolute;
+}
+.reg-form {
+	padding-top: 5px;
+	color: #666;
+	font: 12px/1.5 tahoma,arial,ÀŒÃÂ;
+}
+.reg-form .col-form {
+    padding-top: 20px;
+    line-height: 32px;
+}
 
 .col-form {
     height: 28px;
@@ -99,7 +164,7 @@ a {
 }
 .col-form label {
     font-weight: normal;
-    width: 80px;
+    width: 105px;
     display: inline-block;
     float: left;
     margin-right: 10px;
@@ -117,10 +182,14 @@ a {
     position: relative;
     vertical-align: middle;
 }
-#SexRadio label.label_m {
-    background-position: 3px 9px;
+#sex_radio .label_m {
+	margin-right: 20px;
+	background: url(../images/sex.jpg) no-repeat 5px 7px;
 }
-#SexRadio label {
+#sex_radio .label_w {
+	background: url(../images/sex.jpg) no-repeat 5px -25px;
+}
+#sex_radio label {
     background: rgba(0, 0, 0, 0) no-repeat scroll 0 0;
     float: none;
     font-weight: normal;
@@ -130,7 +199,6 @@ a {
     height: 31px;
     width: 287px;
     float: left;
-    font-size: 14px;
     height: 36px;
     line-height: 36px;
 }
@@ -145,7 +213,7 @@ a {
     z-index: 10;
 }
 .za-item-selector dt {
-    background: rgba(41, 39, 39, 0.59) none repeat scroll 0 0;
+    background: #F8F8F8 none repeat scroll 0 0;
     border: 1px solid #c9c9c9;
     border-radius: 4px;
     cursor: pointer;
@@ -194,7 +262,7 @@ input, a, textarea {
 }
 
 .reg-btn {
-    background: rgba(0, 0, 0, 0) url("../images/btn_reg_24.png") no-repeat scroll 0 0;
+    background-color: #ff6060;
     height: 41px;
     width: 260px;
     border: 0 none;
@@ -204,9 +272,10 @@ input, a, textarea {
     font-family: "Microsoft Yahei";
     font-size: 20px;
     transition: background-color 0.3s ease 0s;
+	margin-left: -141px;
 }
 .reg-btn:hover {
-	background-position: 0 -57px;
+	background-color: #eb5858;
 }
 
 .za-item-selector .year-selector dd {
@@ -215,7 +284,7 @@ input, a, textarea {
 	top: 29px;
 }
 .za-item-selector dd {
-    background: rgba(41, 39, 39, 0.59) none repeat scroll 0 0;
+    background: #F8F8F8 none repeat scroll 0 0;
     box-shadow: none;
     border: 1px solid #c9c9c9;
     padding: 5px;
@@ -250,7 +319,6 @@ input, a, textarea {
 .za-item-selector dd p i {
     padding: 0 5px 0 4px;
     font-style: normal;
-    font-weight: 700;
 }
 .za-item-selector .year-selector a {
     width: 35px;
@@ -263,9 +331,10 @@ input, a, textarea {
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
+	font: 12px/1.5 tahoma,arial,ÀŒÃÂ;
 }
 .za-item-selector dd a:hover {
-    background-color: rgba(235, 235, 235, 0.50);
+    background-color: rgba(190, 235, 235, 0.50);
 }
 
 .za-item-selector .month-selector dd {
@@ -334,4 +403,198 @@ input, a, textarea {
     width: 303px;
     min-height: 220px;
 	top: 29px;
+}
+
+.za-item-selector .height-selector dd {
+    width: 248px;
+    min-height: 220px;
+	top: -174px;
+	z-index: 13;
+}
+
+.za-item-selector .education-selector dd {
+    width: 248px;
+    min-height: 127px;
+	z-index: 13;
+}
+
+.za-item-selector .salary-selector dd {
+    width: 248px;
+    min-height: 108px;
+	z-index: 13;
+}
+
+.height-selector dd ul {
+	height: 375px;
+	overflow: auto;
+	width: 253px;
+	list-style: none;
+}
+.height-selector dd ul li {
+	overflow: hidden;
+	line-height: 25px;
+	text-align: left;
+}
+.height-list li a {
+	width: 95%;
+	padding: 0 2%;
+	text-align: left;
+	float: left;
+}
+
+.education-selector dd ul {
+	overflow: auto;
+	width: 253px;
+	list-style: none;
+}
+.education-selector dd ul li {
+	overflow: hidden;
+	line-height: 25px;
+	text-align: left;
+}
+.education-list li a {
+	width: 95%;
+	padding: 0 2%;
+	text-align: left;
+	float: left;
+}
+
+.salary-selector dd ul {
+	overflow: auto;
+	width: 253px;
+	list-style: none;
+}
+.salary-selector dd ul li {
+	overflow: hidden;
+	line-height: 25px;
+	text-align: left;
+}
+.salary-list li a {
+	width: 95%;
+	padding: 0 2%;
+	text-align: left;
+	float: left;
+}
+
+.sign-header {
+	background-color: #fff;
+	border-bottom: 1px solid #703987;
+	margin-bottom: 13px;
+	box-shadow: 0 1px 0 #fff;
+	color: #818181;
+}
+.sign-frameW {
+	width: 1190px;
+	margin: 0 auto;
+}
+.sign-body .sign-frameW {
+	width: 960px;
+	margin: 0 auto;
+}
+.sign-header .sign-frameW {
+	position: relative;
+	height: 97px;
+	zoom: 1;
+}
+.sign-header .sign-logo {
+	width: 100px;
+	float: left;
+	height: 100%;
+	background: url('../images/icon.png');
+	background-size: cover;
+}
+.sign-header .ad-word {
+	float: left;
+	width: 296px;
+	height: 100%;
+	font-family: STXingkai;
+	font-size: 25px;
+	text-align: left;
+}
+.sign-header .ad-word p {
+	padding-top: 36px;
+}
+.sign-header .ad-word .ad-word-short {
+	line-height: 5px;
+	font-size: 20px;
+	text-align: left;
+}
+
+.sign-tools {
+	float: right;
+	width: 415px;
+	height: 100%;
+	background: url(http://images.zastatic.com/zhenai3/zhenai2015/img/reg/top-bg.png) top center no-repeat;
+}
+.sign-header .sign-tools a {
+	float: right;
+	width: 90px;
+	height: 36px;
+	line-height: 36px;
+	margin-top: 30px;
+	background-color: #FD7A78;
+	border-radius: 1px;
+	color: #fff;
+	transition: background-color .3s;
+	text-align: center;
+	font-size: 16px;
+	text-decoration: none;
+	margin-left: 8px;
+	border-radius: 4px;
+}
+.sign-header .sign-tools .active{
+	background-color: #FD5F5E;
+}
+.sign-header .sign-tools a:hover{
+	background-color: #FD5F5E;
+}
+.height-selector dt {
+	width: 258px;
+}
+.height-selector dt .cData {
+	text-align: left;
+	text-indent: 15px;
+}
+
+.education-selector dt {
+	width: 258px;
+}
+.education-selector dt .cData {
+	text-align: left;
+	text-indent: 15px;
+}
+
+.salary-selector dt {
+	width: 258px;
+}
+.salary-selector dt .cData {
+	text-align: left;
+	text-indent: 15px;
+}
+
+
+.form-line {
+    width: 91%;
+    height: 20px;
+    margin: 0 auto;
+    border-bottom: 1px dashed #ddd;
+}
+
+.za-item-selector input {
+	background: #F8F8F8 none repeat scroll 0 0;
+	border: 1px solid #c9c9c9;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	height: 29px;
+	padding-left: 15px;
+	position: relative;
+	width: 243px;
+	overflow: hidden;
+	float: left;
+}
+.footer {
+	width: 100%;
+	height: 90px;
+	color: #666;
 }

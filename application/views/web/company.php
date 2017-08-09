@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />
 <!--[if lte IE 6]>
        <style type="text/css">
@@ -46,7 +47,7 @@
 </div>
 
 <!-- 热门套系 -->
-<div class="rm">
+<!-- <div class="rm">
   <div class="rm_bt">
     <div class="bt_top">
       <div class="kp_more"><A href="#"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
@@ -61,7 +62,7 @@
       <LI><div class="rm_C"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
     </UL>
   </div>
-</div>
+</div> -->
 <div class="home"></div>
 
 <!-- 尾部 -->
@@ -70,13 +71,16 @@
     <div class="footer1">
       <div class="f_nav">
         <UL>
-          <LI><a href="index.html">首页<I>HOME</I></a></LI>
-			<LI><a href="list.html">作品展示<I>SHOWCASE</I></a></LI>
-			<LI><a href="about.html">客片展示<I>LOVE SHOWCASE</I></a></LI>
-			<LI><a href="prolist.html">写真展示<I>PHOTO SHOW</I></a></LI>
-			<LI><a href="proinfo.html">视频展示<I>VIDEO SHOW</I></a></LI>
-			<LI><a href="newslist.html">套系报价<I>QUOTE</I></a></LI>
-			<LI><a href="news.html">最新活动<I>EVENTS</I></a></LI>
+            <LI><a href="#"><P>返回首页</P><P>HOME</P></a></LI>
+            <LI><a href="#"><P>关于我们</P><P>ABOUT US</P></a></LI>
+            <LI><a href="#"><P>作品展示</P><P>WORKS</P></a></LI>
+            <LI><a href="#"><P>服务价格</P><P>SERVICES</P></a></LI>
+            <LI><a href="#"><P>外景地</P><P>SPCATICNS</P></a></LI>
+            <LI><a href="#"><P>最新动态</P><P>NEWS</P></a></LI>
+            <LI><a href="#"><P>联系我们</P><P>CONTACT</P></a></LI>
+            <LI><a href="#"><P>客户交流</P><P>BBS</P></a></LI>
+            <LI><a href="#"><P>在线订单</P><P>ORDER</P></a></LI>
+            <LI><a href="#"><P>视频展示</P><P>VIDEO</P></a></LI>
         </UL>
       </div>
       <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
