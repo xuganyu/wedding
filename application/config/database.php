@@ -144,7 +144,7 @@ $db['default']['username'] = 'root';
 
 $db['default']['password'] = 'root';
 
-$db['default']['database'] = 'pisenergy_kk';                     
+$db['default']['database'] = 'dating';                     
 
 $db['default']['dbdriver'] = 'mysql';                   //数据库类型
 

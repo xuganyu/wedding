@@ -29,7 +29,7 @@
 									<label>图片标题：</label>
 								</div>
 								<div class="field" style="width:500px">
-									<input type="text" class="input" name="title"placeholder="请输入文章标题" />
+									<input type="text" class="input" value="<?php echo $edit['article_title']; ?>" name="title"placeholder="请输入文章标题" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -38,8 +38,10 @@
 								</div>
 								<div class="field"style="width:500px">
 									<select class="input" name="type_id">
+									    <option <?php if(1==$edit['types_id']){?>selected="selected" value="1">所有活动 </option>
+									    <option value="2">最新活动</option><?php }else{?>
 										<option value="1">所有活动</option>
-										<option value="2">最新活动</option>
+										<option value="2"selected="selected">最新活动</option><?php }?>
 									</select>
 								</div>
 							</div>
@@ -48,7 +50,7 @@
 						          <label>内容：</label>
 						        </div>
 						        <div class="field">
-						          <div id="editor-year" style="width: 800px;" name="content" class="editor"></div>
+						          <div id="editor-year" style="width: 800px;" value="" name="content" class="editor"><?php echo $edit['article_content']; ?></div>
 						        </div>
 						   </div>
 							<div class="form-group" style="padding-left:500px">

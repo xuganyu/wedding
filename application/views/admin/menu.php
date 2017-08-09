@@ -7,7 +7,7 @@
   </ul>   
   <h2><span class="icon-pencil-square-o"></span>活动管理</h2>
   <ul>
-    <li><a href="<?php echo site_url("admin/newsmap");?>" target="right"><span class="icon-caret-right"></span>活动列表</a></li>
+    <li><a href="<?php echo site_url("admin/news");?>" target="right"><span class="icon-caret-right"></span>活动列表</a></li>
   </ul>
 </div>
 <script type="text/javascript">

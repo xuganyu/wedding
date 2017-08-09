@@ -12,7 +12,7 @@ class news_mod extends CI_Model {
 		}
 		$this->db->limit($limit, $start);
 		$this->db->order_by("article_stime", "DESC");
-		$query = $this->db->get("kk_article");
+		$query = $this->db->get("wudi_news_info");
 		return $query->result_array();
 	}
 	
@@ -22,7 +22,7 @@ class news_mod extends CI_Model {
 	 */
 	public function get_news($id){
 		$this->db->where("article_id", $id);
-		$query = $this->db->get("kk_article");
+		$query = $this->db->get("wudi_news_info");
 		return $query->row_array();
 	}
     
@@ -34,7 +34,7 @@ class news_mod extends CI_Model {
 		if(strcmp($search, "") != 0){
 			$this->db->like("article_title", $search);
 		}
-		$query = $this->db->get("kk_article");
+		$query = $this->db->get("wudi_news_info");
 		return count($query->result_array());
 	}
 }

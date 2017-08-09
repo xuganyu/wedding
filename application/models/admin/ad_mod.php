@@ -8,7 +8,7 @@ class ad_mod extends CI_Model {
 	 */
 	public function list_ad(){
 		$this->db->order_by("ad_stime", "DESC");
-		$query = $this->db->get("kk_ad");
+		$query = $this->db->get("wudi_ad_info");
 		return $query->result_array();
 	}
 	
@@ -18,7 +18,7 @@ class ad_mod extends CI_Model {
 	 */
 	public function get_ad($id){
 		$this->db->where("ad_id", $id);
-		$query = $this->db->get("kk_ad");
+		$query = $this->db->get("wudi_ad_info");
 		return $query->row_array();
 	}
     
@@ -27,7 +27,7 @@ class ad_mod extends CI_Model {
 	 * 获取总数
 	 */
 	public function ad_all(){
-		$query = $this->db->get("kk_ad");
+		$query = $this->db->get("wudi_ad_info");
 		return count($query->result_array());
 	}
 }

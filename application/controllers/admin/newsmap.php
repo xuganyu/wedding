@@ -96,7 +96,7 @@ class Newsmap extends CI_Controller {
 					'banner_edme' => $user_name,
 					'banner_stime' => time(),
 			);
-			$this->db->insert('kk_banner', $data);
+			$this->db->insert('wudi_newsmap_info', $data);
 			alert("发布成功", "../newsmap");
 		
 		}else{
@@ -140,7 +140,7 @@ class Newsmap extends CI_Controller {
 			$data = $this->upload->data();
 			$images = $data["file_name"];
 		
-			$query = $this->db ->query("select banner_thumb from kk_banner where banner_id = {$formid}");
+			$query = $this->db ->query("select banner_thumb from wudi_newsmap_info where banner_id = {$formid}");
 			$row = $query->row_array();
 			$del_img = $row['banner_thumb'];
 			if(file_exists('./uploads/'.$del_img)){
@@ -166,7 +166,7 @@ class Newsmap extends CI_Controller {
 			);
 			if(!unlink($fileimg)){}
 			$this->db->where('banner_id', $formid);
-			$this->db->update('kk_banner', $data);
+			$this->db->update('wudi_newsmap_info', $data);
 			alert("修改图片成功", "../newsmap");
 		
 		}else{
@@ -179,7 +179,7 @@ class Newsmap extends CI_Controller {
 					'banner_etime' => time(),
 			);
 			$this->db->where('banner_id', $formid);
-			$this->db->update('kk_banner', $data);
+			$this->db->update('wudi_newsmap_info', $data);
 			alert("修改成功", "../newsmap");
 		}
 	}
@@ -189,7 +189,7 @@ class Newsmap extends CI_Controller {
 	 */
 	public function del(){
 		$id = $this->uri->segment(4, 0);
-		$query = $this->db ->query("select banner_thumb from kk_banner where banner_id = {$id}");
+		$query = $this->db ->query("select banner_thumb from wudi_newsmap_info where banner_id = {$id}");
 		$row = $query->row_array();
 		$del_img = $row['banner_thumb'];
 		
@@ -198,7 +198,7 @@ class Newsmap extends CI_Controller {
 		}
 		
 		$this->db->where('banner_id', $id);
-		$this->db->delete('kk_banner');
+		$this->db->delete('wudi_newsmap_info');
 		alert("删除成功", "../newsmap");
 	}
 	
@@ -215,7 +215,7 @@ class Newsmap extends CI_Controller {
 		);
 	
 		$this->db->where('banner_id', $abc_id);
-		$this->db->update('kk_banner', $data);
+		$this->db->update('wudi_newsmap_info', $data);
 	}
 	
 	/**
@@ -232,7 +232,7 @@ class Newsmap extends CI_Controller {
 		);
 	
 		$this->db->where('banner_id', $ids);
-		$this->db->update('kk_banner', $data);
+		$this->db->update('wudi_newsmap_info', $data);
 		echo true;
 	}
 }

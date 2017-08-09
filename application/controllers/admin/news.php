@@ -52,56 +52,20 @@ class News extends CI_Controller {
 	public function do_add(){
 		//接收表单提交数据
 		$title = $this->input->post("title", TRUE);
-		$url = $this->input->post("url");
+		$type_id = $this->input->post("type_id");
+		$content = $this->input->post("content", TRUE);
 		$user_name = $this->session->userdata('username', TRUE);
-		//处理一下公司域名，如果有填写http,就自动处理去掉
-		$needle= 'tp://';
-		$pos = strpos($url, $needle);
-		if($pos != false){
-			$domain = explode($needle, $url);
-			$url = $domain[1];
-		}
-		
-		//判断是否有上传新的图片，如果没有就退出
-		if($_FILES['images']['error'] != 4){
-		
-			//一切都没问题，就开始创建以日期形式的文件夹
-			$pasth = setPath("uploads");
-		
-			//图片上传，图片配置在config文件夹
-			$this->load->library('upload');
-			$this->upload->do_upload("images");
-			$data = $this->upload->data();
-			$images = $data["file_name"];
-				
-			//图片上传以后，创建一个缩略图，配置在 system/libraries  里
-			$this->load->library('image_lib',array('image'=>$images,'width'=>812,'height'=>406,'maintain_ratio'=>FALSE));
-			$this->image_lib->resize();
-		
-			//把上传的图片删掉只保留缩略图
-			$fileimg = 'uploads/'.$images;
-			//var_dump($fileimg);
-			if (!unlink($fileimg)){
-			}
-		
-			//获取缩略图的文件名，然后保存到数据库，把前面的日期也带上，方便到时删除
-			$product_thumb = date("Ym",time()).'/'.$data["raw_name"]."_thumb".$data["file_ext"];
-			var_dump($product_thumb);
-			$data = array(
-					'banner_title' => $title,
-					'banner_thumb'=> $product_thumb,
-					'banner_url' => $url,
-					'banner_close' => 0,
-					'banner_abc' => 0,
-					'banner_edme' => $user_name,
-					'banner_stime' => time(),
+		    $data = array(
+					'article_title' => $title,
+		    		'types_id'=>$type_id,
+		    		'article_content'=>$content,
+					'article_close' => 0,
+					'article_abc' => 0,
+					'article_edme' => $user_name,
+					'article_stime' => time(),
 			);
-			$this->db->insert('kk_banner', $data);
-			alert("发布成功", "../newsmap");
-		
-		}else{
-			alert("图片不能为空 或 图片大小要小于2M", "");
-		}
+			$this->db->insert('wudi_news_info', $data);
+			alert("发布成功", "../news");
 	}
 	/**
 	 *
@@ -109,97 +73,39 @@ class News extends CI_Controller {
 	 */
 	public function edit(){
 	$id = $this->uri->segment(4, 0);
-	$data['edit'] = $this->newsmap_mod->get_newsmap($id);
-	$this->load->view('admin/newsmap_edit',$data);
+	$data['edit'] = $this->news_mod->get_news($id);
+	$this->load->view('admin/news_edit',$data);
 	}
 	
 	public function do_edit(){
 		//接收表单提交数据
 		$title = $this->input->post("title", TRUE);
 		$formid = $this->input->post("formid", TRUE);
-		$url = $this->input->post("url");
+		$type_id = $this->input->post("type_id");
 		$user_name = $this->session->userdata('username', TRUE);
-		//处理一下公司域名，如果有填写http,就自动处理去掉
-		$needle= 'tp://';
-		$pos = strpos($url, $needle);
-		if($pos != false){
-			$domain = explode($needle, $url);
-			$url = $domain[1];
-		}
-		
-		
-		//判断是否有上传新的图片，如果有就执行删掉旧图片
-		if($_FILES['images']['error'] !== 4){
-		
-			//一切都没问题，就开始创建以日期形式的文件夹
-			$pasth = setPath("uploads");
-		
-			//图片上传，图片配置在config文件夹
-			$this->load->library('upload');
-			$this->upload->do_upload("images");
-			$data = $this->upload->data();
-			$images = $data["file_name"];
-		
-			$query = $this->db ->query("select banner_thumb from kk_banner where banner_id = {$formid}");
-			$row = $query->row_array();
-			$del_img = $row['banner_thumb'];
-			if(file_exists('./uploads/'.$del_img)){
-				unlink('./uploads/'.$del_img);
-			}
-		
-			//图片上传以后，创建一个缩略图，配置在 system/libraries  里
-			$this->load->library('image_lib',array('image'=>$images,'width'=>812,'height'=>406,'maintain_ratio'=>FALSE));
-			$this->image_lib->resize();
-		
-			//把上传的图片删掉只保留缩略图
-			$fileimg = 'uploads/'.$images;
-		
-			//获取缩略图的文件名，然后保存到数据库，把前面的日期也带上，方便到时删除
-			$product_thumb = date("Ym",time()).'/'.$data["raw_name"]."_thumb".$data["file_ext"];
-		
-			$data = array(
-					'banner_title' => $title,
-					'banner_thumb'=> $product_thumb,
-					'banner_url' => $url,
-					'banner_edme' => $user_name,
-					'banner_stime' => time(),
+		$content = $this->input->post("content", TRUE);
+		 $data = array(
+					'article_title' => $title,
+					'types_id' => $type_id,
+					'article_edme' => $user_name,
+					'article_stime' => time(),
 			);
-			if(!unlink($fileimg)){}
-			$this->db->where('banner_id', $formid);
-			$this->db->update('kk_banner', $data);
-			alert("修改图片成功", "../newsmap");
-		
-		}else{
-				
-			//如果没有上传图片修改，就直接修改内容即可
-			$data = array(
-					'banner_title' => $title,
-					'banner_url' => $url,
-					'banner_edme' => $user_name,
-					'banner_etime' => time(),
-			);
-			$this->db->where('banner_id', $formid);
-			$this->db->update('kk_banner', $data);
-			alert("修改成功", "../newsmap");
-		}
+			$this->db->where('article_id', $formid);
+			$this->db->update('wudi_news_info', $data);
+			alert("修改成功", "../news");
 	}
+	
 	/**
 	 *
 	 * 删除数据
 	 */
 	public function del(){
 		$id = $this->uri->segment(4, 0);
-		$query = $this->db ->query("select banner_thumb from kk_banner where banner_id = {$id}");
+		$query = $this->db ->query("select article_thumb from kk_article where article_id = {$id}");
 		$row = $query->row_array();
-		$del_img = $row['banner_thumb'];
-		
-		if(file_exists('./uploads/'.$del_img)){
-			unlink('./uploads/'.$del_img);
-		}
-		
-		$this->db->where('banner_id', $id);
-		$this->db->delete('kk_banner');
-		alert("删除成功", "../newsmap");
+		$this->db->where('article_id', $id);
+		$this->db->delete('wudi_news_info');
+		alert("删除成功", "../news");
 	}
 	
 	/**
@@ -211,11 +117,10 @@ class News extends CI_Controller {
 		$or_abc = $this->input->post('or_abc');
 		$abc_id = $this->input->post('abc_id');
 	    $data = array(
-				'banner_abc' => $or_abc,
+				'article_abc' => $or_abc,
 		);
-	
-		$this->db->where('banner_id', $abc_id);
-		$this->db->update('kk_banner', $data);
+	    $this->db->where('article_id', $abc_id);
+		$this->db->update('wudi_news_info', $data);
 	}
 	
 	/**
@@ -228,11 +133,11 @@ class News extends CI_Controller {
 		$val = intval($val);
 	
 		$data=array(
-				'banner_close' => $val,
+				'article_close' => $val,
 		);
 	
-		$this->db->where('banner_id', $ids);
-		$this->db->update('kk_banner', $data);
+		$this->db->where('article_id', $ids);
+		$this->db->update('wudi_news_info', $data);
 		echo true;
 	}
 }

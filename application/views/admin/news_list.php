@@ -37,6 +37,7 @@
         <th width="10%" >ID</th>
         <th width="20%">名称</th>
         <th width="10%">时间</th>
+        <th width="10%">文章类型</th>
         <th width="10%">关闭</th>
         <th width="1%">排序</th>
         <th width="30%">操作</th>
@@ -46,8 +47,9 @@
             <?php foreach($list as $item){ ?>
                <tr id="block_<?php echo $item['article_id'];?>">
                     <td><?php echo $i++; ?></td>
-                    <td><a href="<?php echo site_url("zkadmin/article/edit/".$item['article_id']);?>"><?php echo $item["article_title"]; ?></a></td>
+                    <td><a href="<?php echo site_url("admin/news/edit/".$item['article_id']);?>"><?php echo $item["article_title"]; ?></a></td>
                     <td ><?php echo get_show_time($item['article_stime']); ?></td>
+                    <td > <?php if($item['types_id']==1){?>全部活动<?php }else{ ?>最新活动<?php } ?></td>
                     <td ><label class="switch" style=" margin:0px 0 -8px;" ><input class="bg-danger" type="checkbox" id="inlineCheckbox_<?php echo $item["article_id"]; ?>" onClick="test('<?php echo $item["article_id"];?>')" name="close_show" value="<?php echo $item['article_close'];?>" <?php if($item["article_close"] == "1"){ ?> checked <?php } ?>><span></span></label></td>
                     <td >
                     <span style="display:none;"><?php echo $item["article_abc"]; ?></span>
@@ -81,7 +83,7 @@
 function paixu(abc,id){
 	$.ajax({
 		type: "POST",
-		url: "<?php echo site_url("admin/newsmap/or_abc");?>",
+		url: "<?php echo site_url("admin/news/or_abc");?>",
 		data: { abc_id: id, or_abc: abc},
 	})
 }
@@ -89,7 +91,7 @@ function paixu(abc,id){
 function test(num){
 	var val=0;
 	if($('#inlineCheckbox_'+num).prop("checked")){ val=1;}
-		$.post("<?php echo site_url("admin/newsmap/close");?>",{ids:num,val:val},function(data){
+		$.post("<?php echo site_url("admin/news/close");?>",{ids:num,val:val},function(data){
 	})
 }
 

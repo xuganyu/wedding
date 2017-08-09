@@ -51,7 +51,7 @@ class Ad extends CI_Controller {
 			$data = $this->upload->data();
 			$images = $data["file_name"];
 		
-			$query = $this->db ->query("select ad_thumb from kk_ad where ad_id = {$formid}");
+			$query = $this->db ->query("select ad_thumb from wudi_ad_info where ad_id = {$formid}");
 			$row = $query->row_array();
 			$del_img = $row['ad_thumb'];
 			if(file_exists('./uploads/'.$del_img)){
@@ -77,7 +77,7 @@ class Ad extends CI_Controller {
 			);
 			if(!unlink($fileimg)){}
 			$this->db->where('ad_id', $formid);
-			$this->db->update('kk_ad', $data);
+			$this->db->update('wudi_ad_info', $data);
 			alert("修改图片成功", "../ad");
 		
 		}else{
@@ -90,7 +90,7 @@ class Ad extends CI_Controller {
 					'ad_etime' => time(),
 			);
 			$this->db->where('ad_id', $formid);
-			$this->db->update('kk_ad', $data);
+			$this->db->update('wudi_ad_info', $data);
 			alert("修改成功", "../ad");
 		}
 	}
@@ -108,7 +108,7 @@ class Ad extends CI_Controller {
 		);
 	
 		$this->db->where('ad_id', $abc_id);
-		$this->db->update('kk_ad', $data);
+		$this->db->update('wudi_ad_info', $data);
 	}
 	
 	
