@@ -42,7 +42,8 @@ class Signup extends CI_Controller {
 	        'salary' => $salary,
 	        'username' => '用户_'.$phone,
 	        'phone' => $phone,
-	        'password' => $password
+	        'password' => $password,
+	        'regtime' => date('Y-m-d H:i:s')
 	    );
 	    if(empty($nickname)){
 	        $data['nickname'] = '用户_'.$phone;
