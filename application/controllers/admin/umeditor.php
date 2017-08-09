@@ -11,6 +11,16 @@ class Umeditor extends CI_Controller {
 	
 	/**
 	 * umeditor -> 上传图片
+	 * 页面调用的demo：
+	     <div id="myEditor"></div>
+	     <script>
+         var um = UM.getEditor('myEditor',
+         {
+               imageUrl:"<?php echo site_url('admin/umeditor/up_images').'?folder=[模块图片存放的文件夹]'; ?>", //处理图片上传的接口
+               imagePath:"", //路径前缀
+               imageFieldName:"upfile" //上传图片的表单的[name]
+         });
+         </script>
 	 */
 	public function up_images(){
 	    //获取模块图片要存放的文件夹
