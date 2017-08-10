@@ -1,6 +1,6 @@
-/* ×¢²áµÇÂ¼Ò³Ãæ ÑùÊ½ */
+/* æ³¨å†Œç™»å½•é¡µé¢ æ ·å¼ */
 body {
-	font: 12px/1.5 tahoma,arial,ËÎÌå;
+	font: 12px/1.5 tahoma,arial,å®‹ä½“;
 }
 
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, form, input, p, img, h6 {
@@ -76,7 +76,7 @@ a {
 	padding-bottom: 100px;
 	width: 960px;
 	margin: 0 auto;
-	height: 910px;
+	height: 1200px;
 }
 
 .reg-box {
@@ -150,7 +150,7 @@ a {
 .reg-form {
 	padding-top: 5px;
 	color: #666;
-	font: 12px/1.5 tahoma,arial,ËÎÌå;
+	font: 12px/1.5 tahoma,arial,å®‹ä½“;
 }
 .reg-form .col-form {
     padding-top: 20px;
@@ -331,7 +331,7 @@ input, a, textarea {
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-	font: 12px/1.5 tahoma,arial,ËÎÌå;
+	font: 12px/1.5 tahoma,arial,å®‹ä½“;
 }
 .za-item-selector dd a:hover {
     background-color: rgba(190, 235, 235, 0.50);
@@ -585,13 +585,29 @@ input, a, textarea {
 	border: 1px solid #c9c9c9;
 	border-radius: 4px;
 	cursor: pointer;
-	font-weight: bold;
 	height: 29px;
 	padding-left: 15px;
 	position: relative;
 	width: 243px;
 	overflow: hidden;
 	float: left;
+	color: #666;
+	font: 12px/1.5 tahoma,arial,Ã‹ÃÃŒÃ¥;
+}
+.za-item-selector textarea {
+	background: #F8F8F8 none repeat scroll 0 0;
+	border: 1px solid #c9c9c9;
+	border-radius: 4px;
+	cursor: pointer;
+	height: 120px;
+	padding-left: 15px;
+	position: relative;
+	width: 243px;
+	overflow: hidden;
+	float: left;
+	color: #666;
+	font: 12px/1.5 tahoma,arial,Ã‹ÃÃŒÃ¥;
+	resize: none;
 }
 .footer {
 	width: 100%;

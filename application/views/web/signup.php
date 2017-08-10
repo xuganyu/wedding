@@ -44,7 +44,7 @@
 				<div class="reg-title-tip">请认真填写真实信息，即将为您开启寻爱之旅。</div>
 				<span class="reg-title-left"></span>
 				<span class="reg-title-right"></span>
-				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post">
+				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post" enctype="multipart/form-data">
 				<div class="reg-form">
 					<!-- 性别 -->
 					<div class="col-form">
@@ -298,7 +298,20 @@
 							<input name="repassword" type="password" id="repassword_input">
 						</div>
 					</div>
-					<br>
+					<div class="form-line"></div>
+					<div class="col-form">
+						<label>我的照片：</label>
+						<div class="za-item-selector">
+							<input name="photo" type="file" id="photo_input" accept="image/*">
+						</div>
+					</div>
+					<div class="col-form">
+						<label>自我介绍：</label>
+						<div class="za-item-selector">
+							<textarea name="intro" id="intro_input"></textarea>
+						</div>
+					</div>
+					<br><br><br><br><br><br><br>
 					<input class="reg-btn" type="submit" value="免费注册">
 				</div>
 				</form>
