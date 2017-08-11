@@ -1,8 +1,4 @@
-=\=\=\=\=\=\=
-<<<<<<<=HEAD
->>>>>>>=branch 'master' of https\://github.com/xuganyu/wedding.git
 eclipse.preferences.version=1
-encoding//application/views/web/company.php=UTF-8
 encoding//application/views/web/index.php=UTF-8
 encoding//application/views/web/search.php=UTF-8
 encoding//application/views/web/showcase_list.php=UTF-8
@@ -10,5 +6,5 @@ encoding//application/views/web/signup.php_old=UTF-8
 encoding//application/views/web/stories.php=UTF-8
 encoding//application/views/web/video.php=UTF-8
 encoding//zeros/admin/css/admin.css=UTF-8
+
 encoding/<project>=UTF-8
-separateDerivedEncodings=true
