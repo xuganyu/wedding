@@ -25,20 +25,19 @@ class Ad extends CI_Controller {
 	
 	public function do_edit(){
 		//接收表单提交数据
-		$title = $this->input->post("title", TRUE);
+		
 		$formid = $this->input->post("formid", TRUE);
 		$url = $this->input->post("url");
 		$user_name = $this->session->userdata('username', TRUE);
 	    $data= $this->ad_mod->get_ad($formid);
-	    //处理一下公司域名，如果有填写http,就自动处理去掉
+	    $title = $data['ad_title'];
+	   //处理一下公司域名，如果有填写http,就自动处理去掉
 		$needle= 'tp://';
 		$pos = strpos($url, $needle);
 		if($pos != false){
 			$domain = explode($needle, $url);
 			$url = $domain[1];
 		}
-		
-		
 		//判断是否有上传新的图片，如果有就执行删掉旧图片
 		if($_FILES['images']['error'] !== 4){
 		
@@ -57,11 +56,15 @@ class Ad extends CI_Controller {
 			if(file_exists('./uploads/'.$del_img)){
 				unlink('./uploads/'.$del_img);
 			}
-		
-			//图片上传以后，创建一个缩略图，配置在 system/libraries  里
-			$this->load->library('image_lib',array('image'=>$images,'width'=>812,'height'=>406,'maintain_ratio'=>FALSE));
-			$this->image_lib->resize();
-		
+		    if ($formid==3) {
+		    //图片上传以后，创建一个缩略图，配置在 system/libraries  里
+			$this->load->library('image_lib',array('image'=>$images,'width'=>544,'height'=>277,'maintain_ratio'=>FALSE));
+			$this->image_lib->resize();   	;
+		    }else{
+	    	//图片上传以后，创建一个缩略图，配置在 system/libraries  里
+	    	$this->load->library('image_lib',array('image'=>$images,'width'=>985,'height'=>71,'maintain_ratio'=>FALSE));
+	    	$this->image_lib->resize();
+		    }
 			//把上传的图片删掉只保留缩略图
 			$fileimg = 'uploads/'.$images;
 		
@@ -69,7 +72,7 @@ class Ad extends CI_Controller {
 			$product_thumb = date("Ym",time()).'/'.$data["raw_name"]."_thumb".$data["file_ext"];
 		
 			$data = array(
-					'ad_title' => $data["ad_title"],
+					'ad_title' =>$title,
 					'ad_thumb'=> $product_thumb,
 					'ad_url' => $url,
 					'ad_edme' => $user_name,
@@ -87,7 +90,7 @@ class Ad extends CI_Controller {
 					'ad_title' => $data["ad_title"],
 					'ad_url' => $url,
 					'ad_edme' => $user_name,
-					'ad_etime' => time(),
+					
 			);
 			$this->db->where('ad_id', $formid);
 			$this->db->update('wudi_ad_info', $data);

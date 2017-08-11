@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
+<link href="<?php echo base_url('zeros/web/css/default.min.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />
 <!--[if lte IE 6]>
        <style type="text/css">
@@ -29,28 +30,48 @@
 <div class="title">
   <div class="title_01"><a href="#">HOME</a>><a href="#">最新活动</a>><a href="#">最新活动</a></div>
 </div>
-
 <div class="zy">
   <div class="zy_imgli">
     <div class="img_bt">
       <div class="img_btli">
         <img src="<?php echo base_url('zeros/web/images/rnt.jpg'); ?>" />
-        <div class="img_pagr"><a href="#" title="T3套系 天然氧吧渡假式海湾海景基地——本季最热套餐6999元">上一篇</a><a href="#" title="T5套系 白宫奢华殿堂+南亚湾海景——双外景套餐6999元">下一篇</a></div>
       </div>
-      <P>活动推荐</P>
-    </div>
-    <div class="img_nei">
-      <UL>
-        <LI><h2><a href="#"></>赵薇—致青春上映在即 选定八月为...</a></h2>  </LI>
-        <LI><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>" width="985" /></LI>
-      </UL>
-    </div>
+   </div>
+    
   </div>
   <div class="clear"></div>
 </div>
 
+<section class="article-content">
+       <div class="article-protect-body">
+          <ul>
+              <?php foreach($list as $item){ ?> 
+                <li>
+                    <a href="<?php echo site_url("web/".$id_a."/items/".$item["article_id"]); ?>"target="_blank">
+                     <h3><?php echo $item["article_title"]; ?></h3>
+                      <span><?php echo date("Y-m-d",$item["article_stime"]); ?></span>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
+              <img src="<?php echo base_url('zeros/web/images/pro1.jpg'); ?>">
+        </div>
+        <div class="pages">
+            	<?php if($page > 1){?>
+                <div class="page">
+                	<div class="img_pagr">
+                	<a href="<?php if($id_c!=1){$prev=$id_c-1;echo site_url("web/showcase/index/".$prev);}else{echo "javscript:";} ?>">上一页</a>
+                       <?php echo $page_links; ?>
+                    <a href="<?php if($id_c!=$page){$next=$id_c+1;echo site_url("web/showcase/index/".$next);}else{echo "javscript:";} ?>">下一页</a>
+                    </div>
+                </div> 
+                <?php } ?>
+            </div>
+            
+    </section>
+    
 <!-- 热门套系 -->
-<div class="rm">
+<!--<div class="rm">
   <div class="rm_bt">
     <div class="bt_top">
       <div class="kp_more"><A href="#"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
@@ -65,7 +86,8 @@
       <LI><div class="rm_C"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
     </UL>
   </div>
-</div>
+</div>  -->
+
 <div class="home"></div>
 
 <!-- 尾部 -->
@@ -88,11 +110,7 @@
       </div>
       <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
     </div>
-    <div class="footer2">
-      <I>友情链接：</I>
-      <P><A href="#">百度</A>|<A href="#">团购网站大全</A>|<A href="#">长沙锐冰摄影</A>|<A href="#">上海摄影</A>|<A href="#">成都婚纱摄影</A>|<A href="#">影楼网站设计</A>|<A href="#">襄阳婚纱摄影</A>|<A href="#">襄阳人才网</A>|<A href="#">西安婚纱摄影</A>|<A href="#">昆明摄影工作室</A>|<A href="#">天津婚纱摄影</A>|<A href="#">海外婚纱摄影</A>|<A href="#">北京婚纱摄影</A>|<A href="#">591结婚网</A>|<A href="#">秦皇岛婚纱摄影</A>|<A href="#">饰品加盟</A>|<A href="#">深圳婚纱摄影工作室</A>|<A href="#">北京口碑最好的婚纱</A>|<A href="#">北京婚纱摄影</A>|<A href="#">591结婚网</A>|<A href="#">秦皇岛婚纱摄影</A>|<A href="#">饰品加盟</A>|<A href="#">深圳婚纱摄影工作室</A>|<A href="#">北京口碑最好的婚纱</A></P>
-    </div>
-    <div class="footer3">
+   <div class="footer3">
       <P>版权所有 © 2007-2012 北京蒙娜丽莎摄影有限公司</P>
       <P>热门推荐：北京婚纱摄影、北京婚纱影楼、婚纱照或婚纱摄影外景，尽在蒙娜丽莎！</P>
     </div>
