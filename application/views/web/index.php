@@ -105,26 +105,23 @@ $(function() {
 <div class="banner">
   <div id="focus">
     <ul>
-      <li><a href="#" target="_blank"><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>"/></a></li>
-      <li><a href="#" target="_blank"><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>"/></a></li>
-      <li><a href="#" target="_blank"><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>"/></a></li>
-      <li><a href="#" target="_blank"><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>"/></a></li>
-      <li><a href="#" target="_blank"><img src="<?php echo base_url('zeros/web/images/ban-7_06.jpg'); ?>"/></a></li>
+        <?php foreach($banner as $item){?>
+            <li> <a href="http://<?php echo $item["banner_url"]; ?>" target="blank"> <img  src="<?php echo base_url("uploads/".$item["banner_thumb"]); ?>" alt="<?php echo $item["banner_title"]; ?>"> </a>
+            </li>
+        <?php } ?>
     </ul>
   </div>
 </div>
 <!-- 联系电话、QQ -->
-
-
 <!-- 最新活动 -->
 <div class="zx">
   <div class="zx_photo">
-    <div class="photo_img"><a href="#"><img src="<?php echo base_url('zeros/web/images/ban-7_13_01_01.jpg'); ?>" /></a></div>
+    <div class="photo_img"><a href="http://<?php echo $adve_c["ad_url"]; ?>"><img src="<?php echo base_url("uploads/".$adve_c["ad_thumb"]); ?>" /></a></div>
     <div class="photo_yin"></div>
   </div>
   <div class="zx_li">
     <div class="zxli_bt">
-      <div class="zxli_more"><a href="#"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
+      <div class="zxli_more"><a href="<?php echo site_url('web/showcase'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
     </div>
     <div class="zxli_nei">
       <UL>
@@ -146,9 +143,9 @@ $(function() {
     </div>
   </div>
 </div>
-<!-- 内景展示 -->
+<!-- 内景展示 -->     
 <div class="zs">
-  <div class="njzs_bt">
+  <div class="njzs_bt"style="background:url(<?php echo base_url("uploads/".$adve_a["ad_thumb"]); ?>) no-repeat;">
     <div class="zxli_more"><a href="#"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
   </div>
   <div class="zs_nei">
@@ -199,7 +196,7 @@ $(function() {
 
 <!-- 外景展示 -->
 <div class="zs">
-  <div class="wjzs_bt">
+  <div class="wjzs_bt"style="background:url(<?php echo base_url("uploads/".$adve_b["ad_thumb"]); ?>) no-repeat;">
     <div class="zxli_more"><a href="#"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
   </div>
   <div class="zs_nei">

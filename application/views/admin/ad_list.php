@@ -24,7 +24,7 @@
         <th width="10%" >ID</th>
         <th width="20%">名称</th>
         <th width="10%">时间</th>
-        <th width="1%">排序</th>
+        <th width="10%">图片大小</th>
         <th width="30%">操作</th>
       </tr>
         <tbody>
@@ -34,10 +34,7 @@
                     <td><?php echo $i++; ?></td>
                     <td><a href="<?php echo site_url("admin/ad/edit/".$item['ad_id']);?>"><?php echo $item["ad_title"]; ?></a></td>
                     <td ><?php echo get_show_time($item['ad_stime']); ?></td>
-                    <td >
-                    <span style="display:none;"><?php echo $item["ad_abc"]; ?></span>
-                    <input type="text" name="or_abc" maxlength="4" autocomplete="off" class="form-control input-sm" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;"value="<?php echo $item["ad_abc"]; ?>" onblur="paixu(this.value,<?php echo $item["ad_id"];?>)">
-                    </td>
+                    <td ><?php echo $item['ad_abc']?></td>
                    <td><div class="button-group"> 
                    <a class="button border-main" href="<?php echo site_url("admin/ad/edit/".$item['ad_id']);?>"><span class="icon-edit"></span> 修改</a>
                    </div></td>

@@ -46,7 +46,7 @@
             <?php foreach($list as $item){ ?>
                <tr id="block_<?php echo $item['banner_id'];?>">
                     <td><?php echo $i++; ?></td>
-                    <td><a href="<?php echo site_url("zkadmin/banner/edit/".$item['banner_id']);?>"><?php echo $item["banner_title"]; ?></a></td>
+                    <td><a href="<?php echo site_url("admin/newsmap/edit/".$item['banner_id']);?>"><?php echo $item["banner_title"]; ?></a></td>
                     <td ><?php echo get_show_time($item['banner_stime']); ?></td>
                     <td ><label class="switch" style=" margin:0px 0 -8px;" ><input class="bg-danger" type="checkbox" id="inlineCheckbox_<?php echo $item["banner_id"]; ?>" onClick="test('<?php echo $item["banner_id"];?>')" name="close_show" value="<?php echo $item['banner_close'];?>" <?php if($item["banner_close"] == "1"){ ?> checked <?php } ?>><span></span></label></td>
                     <td >

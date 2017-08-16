@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fl{ float:left;}
+.fr{ float:right;}
+.wrapper1000{ width:1000px; margin:0 auto;}
+.title1{ height:40px; line-height:38px; background:url(head-bg.gif) repeat-x 0 100% #FFF;}
+.title1 span{ height:38px; background:url(title-bg.jpg) no-repeat left center; display:block; color:#E13939; font-weight:bold; padding:0 20px 0 40px;font-size:13px; border-bottom:2px solid #CE0609}
+.title1 a.more{height:38px; background:url(more.jpg) no-repeat center center; display:block; width:73px; text-align:center;color:#FFF}
+.title1 a.more:hover{ text-decoration: none; cursor:pointer}
+
+.title2{ height:40px; line-height:38px; background:url(head-bg.gif) repeat-x 0 100% #FFF;}
+.title2 span{ height:38px; background:url(title-bg.jpg) no-repeat left center; display:block; color:#E446A0; font-weight:bold; padding:0 20px 0 40px;font-size:13px; border-bottom:2px solid #DE4C9F}
+.title2 a.more{height:38px; background:url(more.jpg) no-repeat center center; display:block; width:73px; text-align:center;color:#FFF}
+.title2 a.more:hover{ text-decoration: none; cursor:pointer}
+
+ul.jiantou{ padding:5px 0 5px 10px;}
+ul.jiantou li{ background:url(arrow.png) no-repeat left center}
+ul.jiantou li a{ margin-left:25px;}
+ul.dian{ padding:5px 5px 5px 10px;}
+ul.dian li{ background:url(arrow-1.gif) no-repeat left center}
+ul.dian li a{ margin-left:10px;}
+ul.dian li span{ color:#999; float:right}
+
+.mt10{ margin-top:10px;}
+.ml20{  margin-left:20px;}
+
+p.tou{ background:url(sub-head-bg.png) no-repeat; height:24px;}
+div.neirong{ background:url(sub-content-bg.gif) repeat-y; padding:10px 15px;}
+p.di{ background:url(sub-foot-bg.png) no-repeat; height:24px;}
+
+.page{ padding:10px 0; text-align:center}
+.page a{ padding:2px 5px; background:#EFEFEF; border:1px solid #D9D9D9; margin:0 5px;}
+.page a:hover{ background:#CE0609; color:#FFF; text-decoration:none;}
+.page a.on{background:#CE0609; color:#FFF; text-decoration:none;}
+
+.pro{ margin-top:20px;}
+.pro .share{ display:block; height:30px;}
+.pro p{ line-height:30px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

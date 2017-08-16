@@ -75,7 +75,7 @@ class Newsmap extends CI_Controller {
 			$images = $data["file_name"];
 				
 			//图片上传以后，创建一个缩略图，配置在 system/libraries  里
-			$this->load->library('image_lib',array('image'=>$images,'width'=>812,'height'=>406,'maintain_ratio'=>FALSE));
+			$this->load->library('image_lib',array('image'=>$images,'width'=>1583,'height'=>500,'maintain_ratio'=>FALSE));
 			$this->image_lib->resize();
 		
 			//把上传的图片删掉只保留缩略图
@@ -148,7 +148,7 @@ class Newsmap extends CI_Controller {
 			}
 		
 			//图片上传以后，创建一个缩略图，配置在 system/libraries  里
-			$this->load->library('image_lib',array('image'=>$images,'width'=>812,'height'=>406,'maintain_ratio'=>FALSE));
+			$this->load->library('image_lib',array('image'=>$images,'width'=>1583,'height'=>500,'maintain_ratio'=>FALSE));
 			$this->image_lib->resize();
 		
 			//把上传的图片删掉只保留缩略图
@@ -176,7 +176,7 @@ class Newsmap extends CI_Controller {
 					'banner_title' => $title,
 					'banner_url' => $url,
 					'banner_edme' => $user_name,
-					'banner_etime' => time(),
+					
 			);
 			$this->db->where('banner_id', $formid);
 			$this->db->update('wudi_newsmap_info', $data);
