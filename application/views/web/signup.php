@@ -7,43 +7,56 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel="shortcut icon" href="<?php echo base_url('zeros/web/images/icon.png'); ?>" type="image/x-icon" />
-		<link href="<?php echo base_url('zeros/web/css/snow.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 		<link href="<?php echo base_url('zeros/web/css/sign.css'); ?>" rel="stylesheet" type="text/css" media="all" />
+		<link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 		
 		<script src="<?php echo base_url('zeros/web/js/jquery-2.1.4.min.js'); ?>"></script>
 	</head>
 	<body class="sign-body">
-		<!-- 雪特效 -->
-		<div class="snow-container">
-		  <div class="snow foreground"></div>
-		  <div class="snow foreground layered"></div>
-		  <div class="snow middleground"></div>
-		  <div class="snow middleground layered"></div>
-		  <div class="snow background"></div>
-		  <div class="snow background layered"></div>
-		</div>
-		<div class="sign-header">
-			<div class="sign-frameW">
-				<a class="sign-logo" href="#" title="网站名"></a>
-				<div class="ad-word"><p>网站名</p><div class="ad-word-short">shortname</div></div>
-				<div class="sign-tools">
-					<a href="index.html">登录</a><a href="signup.html" class="active">注册</a>
-				</div>
-			</div>
-		</div>
+		<div class="top" style="text-align: center;">
+            <div style="width: 985px;height: 134px;margin: 0 auto;text-align: right;">
+                <?php $login = get_user_info();?>
+                <?php if(empty($login)){?>
+                <div class="top-link">
+                    <a href="<?php echo site_url('web/signup')?>">注册</a>
+                    <a href="<?php echo site_url('web/login')?>">登录</a>
+                </div>
+                <?php }?>
+            </div>
+        </div>
 		<!-- 导航栏 -->
+		<div class="nav" style="text-align: center;">
+            <div style="width: 80%;text-align: center;margin: 0 auto;">
+              <UL style="display: table;width: auto;">
+                <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
+                <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
+                <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
+                <LI><a href="<?php echo site_url('web/showcase'); ?>">活动推荐<I>LOVE SHOWCASE</I></a></LI>
+                <!-- <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
+                <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI> -->
+                <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
+              </UL>
+            </div>
+        </div>
 		<!-- <div class="sign-top-buttons">
 		<a href="index.html">登录</a><a href="signup.html" class="sign-active">注册</a>
 		</div> 
 		<br>
 		<br> -->
+		<div style="height: 50px;width: 100%;"></div>
+		<div class="zy" style="text-align: center;">
+          <div class="zy_bt">
+            <div class="bt_01"></div>
+            <div class="bt_02">会员注册</div>
+            <div class="bt_03"></div>
+            <div class="bt_04"></div>
+            <div class="bt_05"></div>
+          </div>
+        </div>
 		<!-- 注册信息 -->
 		<div class="middle-part">
 			<div class="reg-box-left">
-				<h1 class="reg-title">60秒完成注册，幸福一辈子！</h1>
 				<div class="reg-title-tip">请认真填写真实信息，即将为您开启寻爱之旅。</div>
-				<span class="reg-title-left"></span>
-				<span class="reg-title-right"></span>
 				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post" enctype="multipart/form-data">
 				<div class="reg-form">
 					<!-- 性别 -->
@@ -313,20 +326,42 @@
 					</div>
 					<br><br><br><br><br><br><br>
 					<input class="reg-btn" type="submit" value="免费注册">
+					<div class="form-line"></div>
 				</div>
 				</form>
 			</div>
-			<div class="reg-box-right"><br><br><p>这里可以放照片、<br>广告或者宣传语</p></div>
 		</div>
 		
-		<!-- footer -->
-		<div class="footer">
-			<div class="footer_01">
-				<div class="footer3">
-				  <p>版权所有 © 20xx-20xx 北京xxxx有限公司</p>
-				</div>
-			</div>
-		</div>
+		<div class="home" style="padding-bottom: 0;"></div>
+        <div class="tiao"></div>
+        
+        <!-- 尾部 -->
+        <div class="footer">
+          <div class="footer_01">
+            <div class="footer1">
+              <div class="f_nav">
+                <UL>
+                  <LI><a href="#"><P>返回首页</P><P>HOME</P></a></LI>
+                  <LI><a href="#"><P>关于我们</P><P>ABOUT US</P></a></LI>
+                  <LI><a href="#"><P>作品展示</P><P>WORKS</P></a></LI>
+                  <LI><a href="#"><P>服务价格</P><P>SERVICES</P></a></LI>
+                  <LI><a href="#"><P>外景地</P><P>SPCATICNS</P></a></LI>
+                  <LI><a href="#"><P>最新动态</P><P>NEWS</P></a></LI>
+                  <LI><a href="#"><P>联系我们</P><P>CONTACT</P></a></LI>
+                  <LI><a href="#"><P>客户交流</P><P>BBS</P></a></LI>
+                  <LI><a href="#"><P>在线订单</P><P>ORDER</P></a></LI>
+                  <LI><a href="#"><P>视频展示</P><P>VIDEO</P></a></LI>
+                </UL>
+              </div>
+              <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
+            </div>
+          
+            <div class="footer3">
+              <P>版权所有 © 2007-2017 北京xxx有限公司</P>
+              <P>热门推荐：北京婚纱摄影、北京婚纱影楼、婚纱照或婚纱摄影外景，尽在蒙娜丽莎！</P>
+            </div>
+          </div>
+        </div>
 		<script>
 		$(function(){
 			//域点击

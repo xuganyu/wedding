@@ -7,6 +7,10 @@ class Signup extends CI_Controller {
 	}
 	
 	public function index(){
+	    $login = get_user_info();
+	    if(!empty($login)){
+	        redirect('web/index');
+	    }
 	    $this->load->view('web/signup');
 	}
 	

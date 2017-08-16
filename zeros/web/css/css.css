@@ -272,7 +272,54 @@ h3 { padding:4px 7px 1px; 7px; line-height:25px;color: #FFF; font-family:\5b8b\4
 .txbj_nei ul li:hover .txbj_wen02 .wenli p {background:url(../images/ico_36.gif);color:#FFF;}
 
 
-
+.top-link {
+	width: 200px;
+	height: 34px;
+	float: right;
+	margin-right: 50px;
+	margin-top: 50px;
+}
+.top-link a {
+	float: right;
+    width: 90px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #FF0964;
+    border-radius: 1px;
+    color: #fff;
+    transition: background-color .3s;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 8px;
+    border-radius: 4px;
+}
+.top-link a:hover {
+	background-color: #E85582;
+}
+.top-name {
+	height: 31px;
+	margin-right: 50px;
+	margin-top: 45px;
+}
+.top-name span {
+	font-size: 18px;
+	color: #FE0666;
+}
+.top-name span a {
+	font-size: 18px;
+	color: #FE0666;
+}
+.top-name span a:hover {
+	color: #666;
+}
+.top-pointer {
+	color: #FE0666;
+	cursor: pointer;
+}
+.top-pointer:hover {
+	color: #666;
+}
 
 
 

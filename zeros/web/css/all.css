@@ -4,7 +4,6 @@
 body{color:#000;background:#fff url(bg.png) no-repeat 50% 0;font:12px/1.6 Verdana, Helvetica, sans-serif;text-align:center;}
 *{margin:0;padding:0;}
 input,select{font-size:12px;vertical-align:middle;}
-body div{text-align:left;}
 textarea,input{word-wrap:break-word;word-break:break-all;padding:0px;}
 li{list-style-type:none;}
 img{border:0 none;}

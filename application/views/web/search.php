@@ -100,17 +100,33 @@ $(function(){
 </head>
 
 <body>
-<div class="top"></div>
-<div class="nav">
- <UL>
-    <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
-    <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
-    <LI><a href="<?php echo site_url('web/showcase'); ?>">热帖推荐<I>LOVE SHOWCASE</I></a></LI>
-    <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI>
-    <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
-  </UL>
+<div class="top" style="text-align: center;">
+    <div style="width: 985px;height: 134px;margin: 0 auto;text-align: right;">
+        <?php $login = get_user_info();?>
+        <?php if(empty($login)){?>
+        <div class="top-link">
+            <a href="<?php echo site_url('web/signup')?>">注册</a>
+            <a href="<?php echo site_url('web/login')?>">登录</a>
+        </div>
+        <?php }else{?>
+        <div class="top-name">
+            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        </div>
+        <?php }?>
+    </div>
+</div>
+<div class="nav" style="text-align: center;">
+    <div style="width: 80%;text-align: center;margin: 0 auto;">
+      <UL style="display: table;width: auto;">
+        <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
+        <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
+        <LI><a href="<?php echo site_url('web/showcase'); ?>">活动推荐<I>LOVE SHOWCASE</I></a></LI>
+        <!-- <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI> -->
+        <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
+      </UL>
+    </div>
 </div>
 <!-- <div class="banner">
   <div id="focus">
@@ -129,7 +145,8 @@ $(function(){
   <div class="tel_02">123</div>
   <div class="tel_03">312</div>
 </div> -->
-<div id="main_demo"style="padding-left:313px; padding-top:5px;padding-bottom:5px">
+<div id="main_demo" style="text-align: center;">
+<div style="margin: 0 auto;">
  搜索意中人：  
 <select id="edu" name="edu">
   <option value="0">性别</option>
@@ -161,6 +178,7 @@ $(function(){
   <option value="5">58-68</option>
 </select>
 <a  href="#" data-toggle="modal" data-target="#myModal">更多条件查找</a>
+</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

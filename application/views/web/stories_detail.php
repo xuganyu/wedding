@@ -83,10 +83,104 @@ $(function() {
 
 </script>
 <!--[if lte IE 6]>
-<style type="text/css">
-body { behavior:url("csshover.htc"); }
+       <style type="text/css">
+       body { behavior:url("csshover.htc"); }
+       </style>
+       <![endif]-->
+
+<style>
+#story_title {
+	text-align: center;
+	line-height: 70px;
+	font-size: 17px;
+}
+#story_content {
+	width: 985px;
+	text-align: center;
+}
+#story_content .story_center {
+	margin: 0 auto;
+	width: 785px;
+	text-align: left;
+}
+/* #story_image {
+    float: right; 
+    margin: 10px 0 0 10px;  
+} */
+#story_content p { 
+    line-height: 26px;
+	font-size: 14px;
+}
+#story_footer {
+	float: right;
+	font-size: 14px;
+	font-style: oblique;
+	color: #666;
+	padding-right: 15px;
+}
+.form-line {
+    width: 800px;
+    height: 20px;
+    margin: 20px auto;
+    border-bottom: 1px dashed #ddd;
+}
+.comment_title {
+	background-color: rgb(255, 170, 187);
+	width: 785px;
+	height: 30px;
+	margin: 0 auto;
+	border-radius: 3px;
+}
+.comment_title .ct-l{
+	float: left;
+}
+.comment_title .ct-r{
+	float: right;
+}
+.ct-l span {
+	padding-left: 15px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #666;
+}
+.ct-r a {
+	padding-right: 15px;
+	line-height: 30px;
+	font-size: 14px;
+	text-decoration: none;
+	color: #666;
+}
+#comment_input {
+	height: 100px;
+	width: 785px;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+#comment_content {
+	box-sizing: border-box;
+	padding: 5px 10px;
+	height: 85px;
+	line-height: 24px;
+	border: 1px solid #f3f5f2;
+	border-radius: 5px 0 0 5px;
+	border-right: 0;
+	resize: none;
+	width: 700px;
+	float: left;
+	color: #666;
+	font-size: 14px;
+}
+#comment_submit {
+	height: 85px;
+	width: 85px;
+	background-color: #F23756;
+	border: #F23756;
+	border-radius: 0 5px 5px 0;
+	float: right;
+	color: white;
+	cursor: pointer;
+}
 </style>
-<![endif]-->
 </head>
 
 <body>
@@ -137,13 +231,13 @@ body { behavior:url("csshover.htc"); }
 </div> -->
 <div style="height: 50px;width: 100%;"></div>
 <!-- 子页修改 图片展示 列表 -->
-<div class="zy" style="text-align: center;">
+<div class="zy">
   <div class="zy_bt">
     <div class="bt_01"></div>
-    <div class="bt_02">成功故事</div>
+    <div class="bt_02" id="story_back" style="cursor: pointer;">成功故事</div>
     <div class="bt_03"></div>
     <div class="bt_04"></div>
-    <div class="bt_05"><A href="<?php echo site_url('web/stories/index').'?order=click'; ?>">按点击量排序</A>·<A href="<?php echo site_url('web/stories/index').'?order=time'; ?>">时间排序</A><!-- ·<A href="#">最新活动</A> --></div>
+    <div class="bt_05"></div>
   </div>
   <!-- <div class="zy_left">
     <div class="left_list">
@@ -152,8 +246,8 @@ body { behavior:url("csshover.htc"); }
         <li><A href="#">热门活动</A></li>
         <li><A href="#">所有活动</A></li>
       </ul>
-    </div> -->
-    <!-- <div class="left_tj">
+    </div>
+    <div class="left_tj">
       <div class="tj_bt"><img src="<?php echo base_url('zeros/web/images/sub01_03_19.jpg'); ?>" /></div>
       <div class="tj_nei">
         <UL>
@@ -166,73 +260,83 @@ body { behavior:url("csshover.htc"); }
         </UL>
       </div>
     </div>
-  </div> -->
-  <div style="width: 785px;margin: 40px auto;text-align: center;">
-    <div class="txbj_nei" style="margin: 0 auto;">
-      <UL>
-        <?php foreach ($list as $item) {?>
-        <LI style="margin-bottom: 40px;padding-bottom: 8px;border-bottom: 2px #eeeeee solid;">
-          <div class="txbj_img">
-            <a href="<?php echo site_url('web/stories/detail/'.$item['id']); ?>" target="_blank">
-                <img src="<?php echo base_url('uploads/stories/'.substr($item['image'], 0, 6).'/'.$item['image']); ?>" title="<?php echo $item['title']; ?>" style="width: 100%;" />
-            </a>
-          </div>
-          <div class="txbj_wen01">
-            <h4 style="text-align: left;"><?php echo $item['title']; ?></h4>
-            <h5><?php echo mb_substr($item['content'], 0, 20).'...'; ?></h5>
-          </div>
-          <div class="txbj_wen02">
-            <div class="wenli"><P>点击</P><I><?php echo $item['click']; ?></I></div>
-            <div class="wenli"><P>评论</P><I>0</I></div>
-          </div>
-        </LI>
-        <?php }?>
-        <!-- <LI>
-          <div class="txbj_img"><a href="#"><img src="<?php echo base_url('zeros/web/images/09.jpg'); ?>" title="特惠套系—E"/></a></div>
-          <div class="txbj_wen01"><h4>2017年6月成功成为情侣</h4><h5>相知相守，信守一生</h5></div>
-          <div class="txbj_wen02">
-            <div class="wenli"><P>点击</P><I>284</I></div>
-            <div class="wenli"><P>评论</P><I>0</I></div>
-          </div>
-        </LI>
-        <LI>
-          <div class="txbj_img"><a href="#"><img src="<?php echo base_url('zeros/web/images/09.jpg'); ?>" title="特惠套系—E"/></a></div>
-          <div class="txbj_wen01"><h4>2017年6月成功成为情侣</h4><h5>相知相守，信守一生</h5></div>
-          <div class="txbj_wen02">
-            <div class="wenli"><P>点击</P><I>284</I></div>
-            <div class="wenli"><P>评论</P><I>0</I></div>
-          </div>
-        </LI>
-        <LI>
-          <div class="txbj_img"><a href="#"><img src="<?php echo base_url('zeros/web/images/09.jpg'); ?>" title="特惠套系—E"/></a></div>
-          <div class="txbj_wen01"><h4>2017年6月成功成为情侣</h4><h5>相知相守，信守一生</h5></div>
-          <div class="txbj_wen02">
-            <div class="wenli"><P>点击</P><I>284</I></div>
-            <div class="wenli"><P>评论</P><I>0</I></div>
-          </div>
-        </LI>
-        <LI>
-          <div class="txbj_img"><a href="#"><img src="<?php echo base_url('zeros/web/images/09.jpg'); ?>" title="特惠套系—E"/></a></div>
-          <div class="txbj_wen01"><h4>2017年6月成功成为情侣</h4><h5>相知相守，信守一生</h5></div>
-          <div class="txbj_wen02">
-            <div class="wenli"><P>点击</P><I>284</I></div>
-            <div class="wenli"><P>评论</P><I>0</I></div>
-          </div>
-        </LI> -->
-      </UL>
+  </div>
+  <div class="zy_right">
+    <div class="txbj_nei">
+    <?php echo $story['id']?>
     </div>
-    <div style="width: 785px;height: 50px;;margin: 0 auto;text-align: center;">
-        <div style="width: 705px;margin: 0 auto;">
-            <div class="img_pagr" style="float: right;">
-                <?php if($page > 1){?>
-                <a href="<?php if($id_c!=1){$prev=$id_c-1;echo site_url("web/stories/index?order=".$order."&per_page=".$prev);}else{echo "javascript:;";} ?>">上一页</a>
-                <?php echo $page_links; ?>
-                <a href="<?php if($id_c!=$page){$next=$id_c+1;echo site_url("web/stories/index?order=".$order."&per_page=".$next);}else{echo "javascript:;";} ?>">下一页</a>
-                <?php }?>
-            </div>
-        </div>
+  </div> -->
+  
+  <!-- 标题 -->
+  <div id="story_title">
+    <h1><?php echo $story['title']; ?></h1>
+  </div>
+  
+  <!-- 内容 -->
+  <div id="story_content">
+    <div class="story_center">
+        <img src="<?php echo base_url('uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image']); ?>" alt="" id="story_image" />
+        <p style="text-indent: 2em;"><?php echo $story['content']; ?></p>
+        <div class="clear" style="height: 10px;"></div>
+        <div id="story_footer">发布时间：<?php echo $story['time']; ?></div>
     </div>
   </div>
+  
+  <!-- 评论 -->
+  <div class="form-line"></div>
+  <div class="comment_title">
+    <div class="ct-l"><span>评论</span></div>
+    <div class="ct-r"><a href="javascript:send_focus();">[发评论]</a></div>
+  </div>
+  <div>
+    <?php if(count($comment) == 0){?>
+    <div style="height: 30px;width: 785px;margin: 0 auto;color: #666;padding: 25px;text-indent: 2em;">暂无评论</div>
+    <?php }?>
+    <?php foreach($comment as $item){?>
+    <div style="width: 785px;margin: 0 auto;">
+        <div style="margin: 25px;border-bottom: 1px solid #ddd;">
+            <?php if(empty($item['to'])){?>
+                <p>
+                    <a href="javascript:;" style="color: #666;font-style: oblique;" title="回复<?php echo $item['from']; ?>" onclick="comment_to(<?php echo $item['from_id']; ?>,'<?php echo $item['from']; ?>');">
+                    <?php echo $item['from']; ?>
+                    </a>：
+                </p>
+                <p><?php echo $item['content']; ?></p>
+                <p style="text-align: right;color: #666;font-style: oblique;font-size: 12px;"><?php echo $item['time'];?></p>
+            <?php }else{?>
+                <p>
+                    <a href="javascript:;" style="color: #666;font-style: oblique;" title="回复<?php echo $item['from']; ?>" onclick="comment_to(<?php echo $item['from_id']; ?>,'<?php echo $item['from']; ?>');">
+                    <?php echo $item['from']; ?>
+                    </a>&nbsp;&nbsp;回复&nbsp;&nbsp;
+                    <a href="javascript:;" style="color: #666;font-style: oblique;" title="回复<?php echo $item['from']; ?>" onclick="comment_to(<?php echo $item['from_id']; ?>,'<?php echo $item['from']; ?>');">
+                    <?php echo $item['to']; ?>
+                    </a>：
+                </p>
+                <p><?php echo $item['content']; ?></p>
+                <p style="text-align: right;color: #666;font-style: oblique;font-size: 12px;"><?php echo $item['time'];?></p>
+            <?php }?>
+        </div>
+    </div>
+    <?php }?>
+  </div>
+  <div class="comment_title">
+    <div class="ct-l"><span>发评论</span></div>
+  </div>
+  <div style="width: 785px;margin: 5px auto;">
+      <div id="comment_input_tip" style="width: auto;height: 20px;border: 1px solid #666;border-radius: 4px;color: #666;display: none;">
+        <span style="padding-left: 8px;" name="itip"></span>&nbsp;&nbsp;
+        <span style="float: right;padding-right: 7px;cursor: pointer;" onclick="tip_close(this)">x</span>
+      </div>
+  </div>
+  <div id="comment_input">
+    <form action="<?php echo site_url('web/stories/write_comment'); ?>" method="post">
+        <input type="hidden" id="comment_to" name="to_id" />
+        <input type="hidden" id="story_id" name="story_id" value="<?php echo $story['id']; ?>"/>
+        <textarea id="comment_content" name="content" placeholder="<?php if(!$login_status){echo '请登录后，发表评论';}else{echo '请发表评论';}?>"></textarea>
+        <input value="评论" type="submit" id="comment_submit" <?php if(!$login_status){echo 'disabled="disabled"';} ?> />
+    </form>
+  </div>
+  <br></br>
   <div class="clear"></div>
 </div>
 
@@ -267,7 +371,43 @@ body { behavior:url("csshover.htc"); }
     </div>
   </div>
 </div>
-
+<script>
+$(window).load(function(){
+	var image = new Image();
+	image.src = '<?php echo base_url('uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image']); ?>';
+	var width = image.width, height = image.height;
+	if(width/height >= 3.5){
+	    if(width >= 650){
+		    width = 785;
+		    height = image.height*785/image.width;
+	    }else{
+	        width = 400;
+	        height = image.height*400/image.width;
+	    }
+	}else{
+        width = 300;
+        height = image.height*300/image.width;
+	}
+	var style = 'margin: 10px 0 0 10px;float: right;width: ' + width + 'px;height: ' + height + 'px;';
+	$('#story_image').attr('style', style);
+});
+$('#story_back').click(function(){
+	window.location.href = '<?php echo site_url('web/stories'); ?>';
+});
+function send_focus(){
+	$('#comment_content').focus();
+};
+function comment_to(to_id,to){
+	$('#comment_to').val(to_id);
+	$('#comment_input_tip').find("span[name='itip']").html('回复' + to);
+	$('#comment_input_tip').css('display','inline-block');
+	$('#comment_content').focus();
+};
+function tip_close(dom){
+	$('#comment_to').val('');
+	$(dom).parent().hide();
+}
+</script>
 
 </body>
 </html>

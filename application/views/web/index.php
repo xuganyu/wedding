@@ -83,24 +83,40 @@ $(function() {
 
 </script>
 <!--[if lte IE 6]>
-       <style type="text/css">
-       body { behavior:url("csshover.htc"); }
-       </style>
-       <![endif]-->
+<style type="text/css">
+body { behavior:url("csshover.htc"); }
+</style>
+<![endif]-->
 </head>
 
 <body>
-<div class="top"></div>
-<div class="nav">
-  <UL>
-    <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
-    <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
-    <LI><a href="<?php echo site_url('web/showcase'); ?>">热帖推荐<I>LOVE SHOWCASE</I></a></LI>
-    <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI>
-    <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
-  </UL>
+<div class="top" style="text-align: center;">
+    <div style="width: 985px;height: 134px;margin: 0 auto;text-align: right;">
+        <?php $login = get_user_info();?>
+        <?php if(empty($login)){?>
+        <div class="top-link">
+            <a href="<?php echo site_url('web/signup')?>">注册</a>
+            <a href="<?php echo site_url('web/login')?>">登录</a>
+        </div>
+        <?php }else{?>
+        <div class="top-name">
+            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        </div>
+        <?php }?>
+    </div>
+</div>
+<div class="nav" style="text-align: center;">
+    <div style="width: 80%;text-align: center;margin: 0 auto;">
+      <UL style="display: table;width: auto;">
+        <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
+        <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
+        <LI><a href="<?php echo site_url('web/showcase'); ?>">活动推荐<I>LOVE SHOWCASE</I></a></LI>
+        <!-- <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI> -->
+        <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
+      </UL>
+    </div>
 </div>
 <div class="banner">
   <div id="focus">
@@ -114,154 +130,244 @@ $(function() {
 </div>
 <!-- 联系电话、QQ -->
 <!-- 最新活动 -->
-<div class="zx">
+<div class="zx" style="margin-top: 20px;">
   <div class="zx_photo">
     <div class="photo_img"><a href="http://<?php echo $adve_c["ad_url"]; ?>"><img src="<?php echo base_url("uploads/".$adve_c["ad_thumb"]); ?>" /></a></div>
     <div class="photo_yin"></div>
   </div>
   <div class="zx_li">
-    <div class="zxli_bt">
+    <div class="zxli_bt" style="border-bottom: 1px solid #ddd;">
       <div class="zxli_more"><a href="<?php echo site_url('web/showcase'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
     </div>
     <div class="zxli_nei">
       <UL>
-        <LI> <A href="#"><img src="<?php echo base_url('zeros/web/images/01.jpg'); ?>" /></A> <A href="#">
+        <?php foreach ($activity as $item) {?>
+        <LI style="border-bottom: 1px dashed #ddd;">
+            <A href="<?php echo site_url("web/showcase/items/".$item["article_id"]); ?>" target="_blank">
+                <h1 style="float: none;padding-left: 20px;"><?php if(mb_strlen($item['article_title']) >= 20){echo mb_substr($item['article_title'], 0, 20).'...';}else{echo $item['article_title'];}?></h1>
+            </A> 
+            <div style="height: 38px;">
+                <p style="float: none;font-style: normal;line-height: 19px;color: #aaa;text-indent: 12px;padding-left: 20px;">
+                    <?php if(mb_strlen(strip_tags($item['article_content'])) >= 40){echo mb_substr(strip_tags($item['article_content']), 0, 40).'...';}else{echo strip_tags($item['article_content']).'...';}?>
+                </p>
+            </div>
+            <div class="time">
+                <div style="float: right;">
+                    <P>POST TIME : <?php echo date('Y/m/d', $item['article_stime']); ?></P>
+                    <A href="<?php echo site_url("web/showcase/items/".$item["article_id"]); ?>" target="_blank"><span>详细阅读</span></A> 
+                </div>
+            </div>
+        </LI>
+        <?php }?>
+        <!-- <LI> <A href="#"><img src="<?php echo base_url('zeros/web/images/01.jpg'); ?>" /></A> <A href="#">
           <h1>2012年北京婚纱摄影三八妇女节优惠活动...</h1>
           </A> <I>春季到了，各种鲜花即将开放，到处都是花的海洋，不要错过这最美好的季节，赶快和珍...</I>
           <div class="time">
             <P>POST TIME:2013/01/15</P>
             <A href="#"><span>详细阅读</span></A> </div>
-        </LI>
-        <LI> <A href="#"><img src="<?php echo base_url('zeros/web/images/01.jpg'); ?>" /></A> <A href="#">
-          <h1>2012年北京婚纱摄影三八妇女节优惠活动...</h1>
-          </A> <I>春季到了，各种鲜花即将开放，到处都是花的海洋，不要错过这最美好的季节，赶快和珍...</I>
-          <div class="time">
-            <P>POST TIME:2013/01/15</P>
-            <A href="#"><span>详细阅读</span></A> </div>
-        </LI>
+        </LI> -->
       </UL>
     </div>
   </div>
 </div>
-<!-- 内景展示 -->     
+<!-- 用户展示 --> 
+<?php if(strcmp($sex, '女') == 0){?>    
 <div class="zs">
-  <div class="njzs_bt"style="background:url(<?php echo base_url("uploads/".$adve_a["ad_thumb"]); ?>) no-repeat;">
-    <div class="zxli_more"><a href="#"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
+  <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_15_01.jpg"); ?>) no-repeat;">
+    <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
   </div>
-  <div class="zs_nei">
+  <div class="zs_nei" style="background: none;height: 642px;">
     <UL>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 室内婚纱照</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
+        <?php foreach ($males as $male){?>
+        <LI style="margin-bottom: 20px;">
+        <div class="boxgrid captionfull"> 
+            <a href="#">
+                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>"/>
+            </a>
+            <div class="cover boxcaption">
+                <h3><?php echo $male['nickname']; ?></h3>
+                <p>地区&nbsp;&nbsp;<?php echo $male['area']; ?></p>
+                <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($male['regtime']))?></p>
+            </div>
         </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/05.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 室内婚纱照</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 室内婚纱照</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 室内婚纱照</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
+        </LI>
+        <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+        <?php }?>
+        <?php if(count($males) < 8){?>
+            <?php for($i=count($males); $i<8; $i++){?>
+            <LI style="margin-bottom: 20px;">
+            <div class="boxgrid captionfull"> 
+                <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                </a>
+                <div class="cover boxcaption">
+                    <h3>期待您的加入</h3>
+                    <p>免费注册</p>
+                    <p>开启寻爱之旅</p>
+                </div>
+            </div>
+            </LI>
+            <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+            <?php }?>
+        <?php }?>
     </UL>
   </div>
 </div>
-
-<!-- 外景展示 -->
+<?php }else if(strcmp($sex, '男') == 0){?>
 <div class="zs">
-  <div class="wjzs_bt"style="background:url(<?php echo base_url("uploads/".$adve_b["ad_thumb"]); ?>) no-repeat;">
-    <div class="zxli_more"><a href="#"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
+  <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_16_01.jpg"); ?>) no-repeat;">
+    <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
   </div>
-  <div class="zs_nei">
+  <div class="zs_nei" style="background: none;height: 642px;">
     <UL>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
+        <?php foreach ($females as $female){?>
+        <LI style="margin-bottom: 20px;">
+        <div class="boxgrid captionfull"> 
+            <a href="#">
+                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>"/>
+            </a>
+            <div class="cover boxcaption">
+                <h3><?php echo $female['nickname']; ?></h3>
+                <p>地区&nbsp;&nbsp;<?php echo $female['area']; ?></p>
+                <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($female['regtime']))?></p>
+            </div>
         </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/05.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
-      <LI>
-        <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-          <div class="cover boxcaption">
-            <h3>爱在西元前</h3>
-            <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-            <p>- POST TIME：2012-12-01</p>
-          </div>
-        </div>
-      </LI>
-      <li id="dt"></li>
+        </LI>
+        <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+        <?php }?>
+        <?php if(count($females) < 8){?>
+            <?php for($i=count($females); $i<8; $i++){?>
+            <LI style="margin-bottom: 20px;">
+            <div class="boxgrid captionfull"> 
+                <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                </a>
+                <div class="cover boxcaption">
+                    <h3>期待您的加入</h3>
+                    <p>免费注册</p>
+                    <p>开启寻爱之旅</p>
+                </div>
+            </div>
+            </LI>
+            <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+            <?php }?>
+        <?php }?>
     </UL>
   </div>
 </div>
+<?php }else{?>
+<div class="zs">
+  <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_15_01.jpg"); ?>) no-repeat;">
+    <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
+  </div>
+  <div class="zs_nei" style="background: none;height: 642px;">
+    <UL>
+        <?php foreach ($males as $male){?>
+        <LI style="margin-bottom: 20px;">
+        <div class="boxgrid captionfull"> 
+            <a href="#">
+                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>"/>
+            </a>
+            <div class="cover boxcaption">
+                <h3><?php echo $male['nickname']; ?></h3>
+                <p>地区&nbsp;&nbsp;<?php echo $male['area']; ?></p>
+                <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($male['regtime']))?></p>
+            </div>
+        </div>
+        </LI>
+        <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+        <?php }?>
+        <?php if(count($males) < 8){?>
+            <?php for($i=count($males); $i<8; $i++){?>
+            <LI style="margin-bottom: 20px;">
+            <div class="boxgrid captionfull"> 
+                <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                </a>
+                <div class="cover boxcaption">
+                    <h3>期待您的加入</h3>
+                    <p>免费注册</p>
+                    <p>开启寻爱之旅</p>
+                </div>
+            </div>
+            </LI>
+            <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+            <?php }?>
+        <?php }?>
+    </UL>
+  </div>
+</div>
+<div class="zs">
+  <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_16_01.jpg"); ?>) no-repeat;">
+    <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
+  </div>
+  <div class="zs_nei" style="background: none;height: 642px;">
+    <UL>
+        <?php foreach ($females as $female){?>
+        <LI style="margin-bottom: 20px;">
+        <div class="boxgrid captionfull"> 
+            <a href="#">
+                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>"/>
+            </a>
+            <div class="cover boxcaption">
+                <h3><?php echo $female['nickname']; ?></h3>
+                <p>地区&nbsp;&nbsp;<?php echo $female['area']; ?></p>
+                <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($female['regtime']))?></p>
+            </div>
+        </div>
+        </LI>
+        <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+        <?php }?>
+        <?php if(count($females) < 8){?>
+            <?php for($i=count($females); $i<8; $i++){?>
+            <LI style="margin-bottom: 20px;">
+            <div class="boxgrid captionfull"> 
+                <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                </a>
+                <div class="cover boxcaption">
+                    <h3>期待您的加入</h3>
+                    <p>免费注册</p>
+                    <p>开启寻爱之旅</p>
+                </div>
+            </div>
+            </LI>
+            <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+            <?php }?>
+        <?php }?>
+    </UL>
+  </div>
+</div>
+<?php }?>
 
-<!-- 客片展示 -->
-<div class="kp">
+<!-- 成功故事 -->
+<div class="kp" style="height: 365px;">
   <div class="kp_bt">
     <div class="bt_top">
-      <div class="kp_more"><A href="#"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
+      <div class="kp_more"><A href="<?php echo site_url('web/stories')?>"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
       <div class="kp_more"><A href="#top"><img src="<?php echo base_url('zeros/web/images/top.jpg'); ?>" title="返回顶部"/></A></div>
     </div>
   </div>
   <div class="kp_kon"></div>
-  <div class="kp_nei">
+  <div class="kp_nei" style="height: 300px;">
     <UL>
-      <LI>
-        <a href="#"><img src="<?php echo base_url('zeros/web/images/07.jpg'); ?>" /></a>
-        <P>生如夏花</P>
-        <I>POST TIME:2013-01-08</I>
+    <?php foreach ($stories as $story){?>
+      <LI style="background-size: 100% 100%;height: 265px;">
+        <a href="<?php echo site_url('web/stories/detail/'.$story['id']); ?>" target="_blank"><img src="<?php echo base_url('uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image']); ?>" /></a>
+        <P style="height: 44px;"><?php if(mb_strlen($story['title']) >= 15){echo mb_substr($story['title'], 0, 15).'...';}else{echo $story['title'];}?></P>
+        <I>发布于&nbsp;<?php echo $story['time']?></I>
       </LI>
-      <LI>
+    <?php }?>
+    <?php if(count($stories) < 5){?>
+    <?php for($i=count($stories); $i<5; $i++){?>
+      <LI style="background-size: 100% 100%;height: 265px;">
+        <a href="#"><img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>" /></a>
+        <P style="height: 44px;">敬请期待</P>
+        <I>即将发布</I>
+      </LI>
+    <?php }?>
+    <?php }?>
+      <!-- <LI>
         <a href="#"><img src="<?php echo base_url('zeros/web/images/08.jpg'); ?>" /></a>
         <P>生如夏花</P>
         <I>POST TIME:2013-01-08</I>
@@ -280,13 +386,13 @@ $(function() {
         <a href="#"><img src="<?php echo base_url('zeros/web/images/07.jpg'); ?>" /></a>
         <P>生如夏花</P>
         <I>POST TIME:2013-01-08</I>
-      </LI>
+      </LI> -->
     </UL>
   </div>
 </div>
 
 <!-- 热门套系 -->
-<div class="rm">
+<!-- <div class="rm">
   <div class="rm_bt">
     <div class="bt_top">
       <div class="kp_more"><A href="#"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
@@ -301,8 +407,8 @@ $(function() {
       <LI><div class="rm_C"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
     </UL>
   </div>
-</div>
-<div class="home"></div>
+</div> -->
+<div class="home" style="padding-bottom: 0;"></div>
 
 <!-- 尾部 -->
 <div class="tiao"></div>

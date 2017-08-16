@@ -15,18 +15,35 @@
 </head>
 
 <body>
-<div class="top"></div>
-<div class="nav">
-  <UL>
-    <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
-    <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
-    <LI><a href="<?php echo site_url('web/showcase'); ?>">热帖推荐<I>LOVE SHOWCASE</I></a></LI>
-    <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI>
-    <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
-  </UL>
+<div class="top" style="text-align: center;">
+    <div style="width: 985px;height: 134px;margin: 0 auto;text-align: right;">
+        <?php $login = get_user_info();?>
+        <?php if(empty($login)){?>
+        <div class="top-link">
+            <a href="<?php echo site_url('web/signup')?>">注册</a>
+            <a href="<?php echo site_url('web/login')?>">登录</a>
+        </div>
+        <?php }else{?>
+        <div class="top-name">
+            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        </div>
+        <?php }?>
+    </div>
 </div>
+<div class="nav" style="text-align: center;">
+    <div style="width: 80%;text-align: center;margin: 0 auto;">
+      <UL style="display: table;width: auto;">
+        <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
+        <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
+        <LI><a href="<?php echo site_url('web/showcase'); ?>">活动推荐<I>LOVE SHOWCASE</I></a></LI>
+        <!-- <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI> -->
+        <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
+      </UL>
+    </div>
+</div>
+<div style="height: 50px;width: 100%;"></div>
 <!-- 子页修改 图片展示 内容 -->
 <div class="sc">
   <div class="sc_bt" style="text-align:center">
@@ -36,15 +53,17 @@
     <div class="bt_04"></div>
   </div>
 <div class="zy">
-  <div class="zy_imgli">
-    <div class="img_bt">
+  <div class="zy_imgli" style="text-align: center;">
+    <div class="img_bt" style="width: 800px;border-bottom: 1px solid #ddd;margin: 0 auto;">
       
-      <P  style="text-align:center">北京航天亿成信息咨询服务中心</P>
+      <P  style="text-align:center;width: 800px">北京航天亿成信息咨询服务中心</P>
     </div>
     <div class="img_nei">
       <UL>
         <LI><img src="<?php echo base_url('zeros/web/images/company.jpg'); ?>" /></LI>
-        <LI><p>北京航天亿成信息咨询服务中心：是由几位航天系统离退休的人员创立的，服务于航天系统的单身员工及面向全社会各类人群提供婚介、家政等多项生活信息的服务机构。为单身者提供征婚、交友联谊活动，为空巢老人提供老年生活互助服务。我们的宗旨是以真诚、热情帮您解决生活中的困难好烦恼，以低廉的价格为您提供真实可靠、严谨细致的服务，您的满意是我们的最大目标。</p></LI>
+        <LI>
+            <p style="text-align: left;text-indent: 2em;">北京航天亿成信息咨询服务中心：是由几位航天系统离退休的人员创立的，服务于航天系统的单身员工及面向全社会各类人群提供婚介、家政等多项生活信息的服务机构。为单身者提供征婚、交友联谊活动，为空巢老人提供老年生活互助服务。我们的宗旨是以真诚、热情帮您解决生活中的困难好烦恼，以低廉的价格为您提供真实可靠、严谨细致的服务，您的满意是我们的最大目标。</p>
+        </LI>
       </UL>
     </div>
   
@@ -52,10 +71,11 @@
   <div class="clear"></div>
 </div>
 </div>
- <div style="padding-left:200px;">
-  <div style="width:697px;height:550px;border:#ccc solid 1px;padding-left:300px" id="dituContent"></div>
-  </div>
-<div class="home"></div>
+<div style="width: 900px;text-align: center;margin: 0 auto 40px auto;">
+    <div style="width:785px;height:550px;border:#ccc solid 1px;margin: 0 auto;" id="dituContent"></div>
+</div>
+<div class="home" style="padding-bottom: 0;"></div>
+<div class="tiao"></div>
 
 <!-- 尾部 -->
 <div class="footer">
@@ -84,8 +104,6 @@
     </div>
   </div>
 </div>
-</body>
-</html>
 <script type="text/javascript">
     //创建和初始化地图函数：
     function initMap(){
@@ -174,3 +192,5 @@
     
     initMap();//创建和初始化地图
 </script>
+</body>
+</html>

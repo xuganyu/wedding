@@ -99,18 +99,35 @@ $(function(){
 </head>
 
 <body>
-<div class="top"></div>
-<div class="nav">
- <UL>
-    <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
-    <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
-    <LI><a href="<?php echo site_url('web/showcase'); ?>">热帖推荐<I>LOVE SHOWCASE</I></a></LI>
-    <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
-    <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI>
-    <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
-  </UL>
+<div class="top" style="text-align: center;">
+    <div style="width: 985px;height: 134px;margin: 0 auto;text-align: right;">
+        <?php $login = get_user_info();?>
+        <?php if(empty($login)){?>
+        <div class="top-link">
+            <a href="<?php echo site_url('web/signup')?>">注册</a>
+            <a href="<?php echo site_url('web/login')?>">登录</a>
+        </div>
+        <?php }else{?>
+        <div class="top-name">
+            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        </div>
+        <?php }?>
+    </div>
 </div>
+<div class="nav" style="text-align: center;">
+    <div style="width: 80%;text-align: center;margin: 0 auto;">
+      <UL style="display: table;width: auto;">
+        <LI><a href="<?php echo site_url('web/index'); ?>">首页<I>HOME</I></a></LI>
+        <LI><a href="<?php echo site_url('web/search'); ?>">搜索<I>SEARCH SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/stories'); ?>">成功故事<I>SUCCSEE STORIES</I></a></LI>
+        <LI><a href="<?php echo site_url('web/showcase'); ?>">活动推荐<I>LOVE SHOWCASE</I></a></LI>
+        <!-- <LI><a href="<?php echo site_url('web/video'); ?>">视频展示<I>VIDEO SHOW</I></a></LI>
+        <LI><a href="<?php echo site_url('web/signup'); ?>">会员注册<I>SIGN UP</I></a></LI> -->
+        <LI><a href="<?php echo site_url('web/company'); ?>">公司简介<I>COMPANY PROFILE</I></a></LI>
+      </UL>
+    </div>
+</div>
+<div style="height: 50px;width: 100%;"></div>
 <div class="sc">
   <div class="sc_bt">
     <div class="bt_01"></div>
@@ -124,9 +141,9 @@ $(function(){
           <ul>
                <li>
                   <h1  style="text-align: center"><?php echo $edit["article_title"]; ?></h1> 
-                  <h4 style="text-align:left">发布时间：<?php echo date("Y-m-d H:i",$edit["article_stime"]); ?></h4>
+                  <h4 style="text-align:left;font-weight: normal;font-style: oblique;">发布时间：<?php echo date("Y-m-d H:i",$edit["article_stime"]); ?></h4>
                 </li>
-                <p><?php echo $edit["article_content"]; ?></p>
+                <span style="text-indent: 2em;padding: 0 20px;text-align: left;"><?php echo $edit["article_content"]; ?></span>
 		         <div class="jiathis_style_24x24">
 					<a class="jiathis_button_qzone"></a>
 					<a class="jiathis_button_tsina"></a>
@@ -137,7 +154,7 @@ $(function(){
 					<a class="jiathis_counter_style"></a>
 				  </div>
            </ul>
-              <img src="<?php echo base_url('zeros/web/images/pro1.jpg'); ?>">
+              <img src="<?php echo base_url('zeros/web/images/pro1.jpg'); ?>" />
         </div>
    </section>
  </div>
@@ -147,7 +164,8 @@ $(function(){
 
 
 
-<div class="home"></div>
+<div class="home" style="padding-bottom: 0;"></div>
+<div class="tiao"></div>
 
 <!-- 尾部 -->
 <div class="footer">

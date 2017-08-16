@@ -37,6 +37,23 @@ function isloginvip(){
 	}
 }
 
+/**
+ * 前台验证用户是否登录  已登录则获取用户信息
+ */
+function get_user_info(){
+	$CI =& get_instance();
+    
+	if($CI->session->userdata('user_login') == false){
+	    return null;
+	}else{
+	    $data['user_id'] = $CI->session->userdata('user_id');
+	    $data['user_phone'] = $CI->session->userdata('user_phone');
+	    $data['user_name'] = $CI->session->userdata('user_name');
+	    $data['user_nickname'] = $CI->session->userdata('user_nickname');
+	    $data['user_photo'] = $CI->session->userdata('user_photo');
+	    return $data;
+	}
+}
 
 /**
  * 
