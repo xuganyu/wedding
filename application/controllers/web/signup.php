@@ -31,17 +31,28 @@ class Signup extends CI_Controller {
 	    $password = $this->input->post('password');
 	    $repassword = $this->input->post('repassword');
 	    $intro = $this->input->post('intro');
-// 	    if(empty($birth_year) || empty($birth_monnth) || empty($birth_date)
-// 	         || empty($province) || empty($city) || empty($height)
-// 	         || empty($education) || empty($salary) || empty($phone)
-// 	         || empty($password) || empty($repassword) || strcmp($password, $repassword)){
-// 	        alert('请确保信息填写正确！');
-// 	    }
+	    $photo = $this->input->post('photo');
+	    if(empty($birth_year) || empty($birth_monnth) || empty($birth_date)
+	         || empty($province) || empty($city) || empty($height)
+	         || empty($education) || empty($salary) || empty($phone)
+	         || empty($password) || empty($repassword) || strcmp($password, $repassword)){
+	        alert('请确保信息填写正确！');
+	    }
+	    if(empty($photo)){
+	        alert('请选择照片');
+	    }
+	    
+	    $cur_year = date('Y');
+	    $cur_month = date('m');
+	    $cur_day = date('d');
+	    $age = $cur_year - $birth_year - 1;
+	    if($cur_month > $birth_monnth || $cur_month == $birth_monnth && $cur_day >= $birth_date){
+	        $age++;
+	    }
 	    
 	    $data = array(
 	        'sex' => $sex,
 	        'birthday' => $birth_year.'-'.$birth_monnth.'-'.$birth_date,
-	        'area' => $province.$city.$country,
 	        'marriage' => $marriage,
 	        'height' => $height,
 	        'education' => $education,
@@ -50,50 +61,55 @@ class Signup extends CI_Controller {
 	        'phone' => $phone,
 	        'password' => $password,
 	        'regtime' => date('Y-m-d H:i:s'),
-	        'intro' => $intro
+	        'intro' => $intro,
+	        'age' => $age
 	    );
+	    if(empty($country)){
+	        $data['area'] = $province.'-'.$city;
+	    }else{
+	        $data['area'] = $province.'-'.$city.'-'.$country;
+	    }
 	    if(empty($nickname)){
 	        $data['nickname'] = '用户_'.$phone;
 	    }else{
 	        $data['nickname'] = $nickname;
 	    }
 	    
-	    //文件上传配置
-	    $config['upload_path'] = './uploads/user/'.date("Ym").'/';
-	    $config['allowed_types'] = 'gif|jpg|jpeg|png';
-	    $config['max_size'] = '20480'; // 20M
-	    $config['max_width']  = '0';
-	    $config['max_height']  = '0';
-	     
-	    if($_FILES['photo']['error'] != 4){
-	        //创建日期格式的子文件夹
-	        $pasth = setPath("uploads/user");
-	        $this->load->library('upload');
-	        $config['file_name'] = date("YmdHis").rand(00, 99);
-	        $this->upload->initialize($config);
-	         
-	        //上传
-	        if($this->upload->do_upload("photo")){
-	            $file_data = $this->upload->data();
-	            $source_image = './uploads/user/'.date('Ym').'/'.$file_data['file_name'];
-	            //裁剪图片
-	            $thumb_config['image_library'] = 'gd2';
-	            $thumb_config['new_image'] = './uploads/user/'.date("Ym").'/';
-	            $thumb_config['source_image'] = $source_image;
-	            $thumb_config['create_thumb'] = TRUE;
-	            $thumb_config['maintain_ratio'] = FALSE;
-	            $thumb_config['width'] = 200;
-	            $thumb_config['height'] = 284;
-	            $this->load->library('image_lib');
-	            $this->image_lib->initialize($thumb_config);
-	            $this->image_lib->resize();
-	            unlink($source_image);
-	            $data['photo'] = $file_data['raw_name'].'_thumb'.$file_data['file_ext'];
+	    $base64_image = str_replace(' ', '+', $photo);
+	    if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
+	        //匹配成功
+            $image_name = date("YmdHis").rand(00, 99).'.'.$result[2];
+	        $image_file = $_SERVER['DOCUMENT_ROOT']."/uploads/user/".date('Ym').'/'.$image_name;
+	        //服务器文件存储路径
+	        if (file_put_contents($image_file, base64_decode(str_replace($result[1], '', $base64_image)))){
+	            $data['photo'] = $image_name;
         	    $this->db->insert('wudi_user_info', $data);
         	    redirect('web/login');
 	        }else{
-                $this->load->view('web/signup');	            
+    	        alert('请勿上传过大的照片');
 	        }
+	    }else{
+	        alert('请选择照片');
+	    }
+	}
+	
+	/**
+	 * 检测手机号是否已注册
+	 */
+	public function user_phone_exist(){
+	    $phone = $this->input->post('phone');
+	    
+	    $user = $this->db->where('phone', $phone)->get('wudi_user_info')->row_array();
+	    if(empty($user)){
+	        $data = array(
+	            'msg' => 0
+	        );
+	        echo json_encode($data);
+	    }else{
+	        $data = array(
+	            'msg' => 1
+	        );
+	        echo json_encode($data);
 	    }
 	}
 }

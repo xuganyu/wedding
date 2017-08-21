@@ -610,3 +610,11 @@ input, a, textarea {
 	height: 90px;
 	color: #666;
 }
+.check_tip {
+	float: left;
+	color: #ff687b;
+	line-height: 26px;
+}
+.tip_br {
+	margin-left: 105px;
+}
