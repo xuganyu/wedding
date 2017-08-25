@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>搜索页面</title>
 <link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
 <link href="<?php echo base_url('zeros/web/css/bootstrap.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />
@@ -224,7 +224,10 @@ $(function(){
   <option value="5">20000-50000元</option>
   <option value="6">50000元以上</option>
 </select>
-<a  href="#" data-toggle="modal" data-target="#myModal">更多条件查找</a>
+    <button type="button" class="btn btn-default" id="searchData">确定</button>
+    <a  class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal">更多条件查找</a>
+
+
 </div>
 </div>
 <!-- Modal -->
@@ -245,10 +248,10 @@ $(function(){
             <select id="nianling" name="age">
     		  <option value="0">年龄</option>
     		  <option value="1">18-28</option>
-    		  <option value="2">28-38</option>
-    		  <option value="3">38-48</option>
-    		  <option value="4">48-58</option>
-    		  <option value="5">58-68</option>
+    		  <option value="2">29-39</option>
+    		  <option value="3">40-49</option>
+    		  <option value="4">50-59</option>
+    		  <option value="5">60-70</option>
     		</select>
     		<select id="xueli" name="edu">
     		  <option value="0">学历</option>
@@ -293,7 +296,7 @@ $(function(){
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-default">确定</button>
+        <button type="button" class="btn btn-default" id="searchMore">确定</button>
       </div>
     </div>
   </div>
@@ -305,123 +308,44 @@ $(function(){
     <div class="bt_02">作品展示</div>
     <div class="bt_03"></div>
     <div class="bt_04"></div>
-    <div class="bt_05"><A href="#">年龄排序</A>·<A href="#">注册时间</A>·<A href="#">收入排序</A></div>
+    <!--<div class="bt_05"><A href="#">年龄排序</A>·<A href="#">注册时间</A>·<A href="#">收入排序</A></div>-->
   </div>
-  <div class="zy_left">
-    <div class="left_list">
-      <ul>
-        <li><A href="#">优质男士</A></li>
-        <li><A href="#">优质女士</A></li>
-      </ul>
-    </div>
-    <div class="left_tj">
-      <div class="tj_bt"><img src="<?php echo base_url('zeros/web/images/sub01_03_19.jpg'); ?>" /></div>
-       <div class="tj_nei">
-        <UL>
-          <LI><a href="#">赵薇—致青春上映在即 选定八月为...</a></LI>
-          <LI><a href="#">八月照相馆副总经理张毅：我需要...</a></LI>
-          <LI><a href="#">搜狐报道：八月照相馆引领最新摄...</a></LI>
-          <LI><a href="#">珂兰钻石-北京CBD旗舰店介绍</a></LI>
-          <LI><a href="#">八月照相馆携手步步为赢打造网络...</a></LI>
-          <LI><a href="#">55BBS《风云对话》八月照相馆总...</a></LI>
-        </UL>
-      </div> 
-    </div>
-  </div>
-  <div class="zy_right">
-    <div class="hszs_nei">
-      <UL>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
+        <div class="zs">
+
+            <div class="zs_nei" style="background: none;height: 642px;">
+                <UL>
+                    <?php foreach ($name as $item){?>
+                        <LI style="margin-bottom: 20px;">
+                            <div class="boxgrid captionfull">
+                                <a href="search/info/<?php echo $item->Id ?>" >
+                                    <img src="<?php echo base_url('uploads/user/'.substr($item->photo, 0, 6).'/'.$item->photo); ?>"/>
+                                </a>
+                                <div class="cover boxcaption">
+                                    <h3><?php echo $item->nickname; ?> </h3>
+                                    <p>地区&nbsp;&nbsp;<?php echo $item->area; ?></p>
+                                    <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($item->regtime))?></p>
+                                </div>
+                            </div>
+                        </LI>
+                        <li style="width: 22px;height: 285px;overflow: hidden;border: none;"></li>
+                    <?php }?>
+                </UL>
             </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
+            <div class="clear"></div>
+
+            <div class="pages">
+                <?php if($page > 1){?>
+                    <div class="page">
+                        <a class="btn btn-default" href="<?php if($cur_page!=1){$prev=$cur_page-1;echo site_url("/web/search/index/".$prev);}else{echo "javascript:";} ?>">上一页</a>
+
+                        <a class="btn btn-default" href="<?php if($page!=$cur_page){$next=$cur_page+1;echo site_url("/web/search/index/".$next);}else{echo "javascript:";} ?>">下一页</a>
+
+                    </div>
+                <?php } ?>
             </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-        <LI>
-          <div class="boxgrid captionfull"> <a href="#"><img src="<?php echo base_url('zeros/web/images/06.jpg'); ?>"/></a>
-            <div class="cover boxcaption">
-              <h3>爱在西元前</h3>
-              <p>- 婚纱外景·奥斯卡梦幻城堡</p>
-              <p>- POST TIME：2012-12-01</p>
-            </div>
-          </div>
-        </LI>
-      </UL>
-   
-     
-        <div class="img_pagr"><a href="#" title="T3套系 天然氧吧渡假式海湾海景基地——本季最热套餐6999元">上一页</a><a href="#">123456</a><a href="#" title="T5套系 白宫奢华殿堂+南亚湾海景——双外景套餐6999元">下一页</a></div>
-    
-      <div class="clear"></div>
-    </div>
-  </div>
+        </div>
   <div class="clear"></div>
-</div>
+
 
 <!-- 热门套系 -->
 
@@ -455,6 +379,41 @@ $(function(){
   </div>
 </div>
 <script src="<?php echo base_url('zeros/web/js/bootstrap.min.js'); ?>"></script>
+<script>
+
+    $('#searchData').click(function(){
+
+
+
+        var con=$('#sex_select').val()+"/"+$('#age_select').val()+"/"+$('#edu_select').val()+"/"+$('#salary_select').val();
+        window.location.href = "search/getData/"+con;
+
+
+
+
+        /* $.ajax({
+
+             type: "GET",
+             url: "search/getData",
+             data: {username:$('#sex_select').val()},
+             dataType: "json",
+             success: function(data){
+
+             }
+         });*/
+
+    });
+    $('#searchMore').click(function(){
+
+
+        var con=$('#xingbie').val()+"/"+$('#nianling').val()+"/"+$('#xueli').val()+"/"+$('#yueshouru').val()+"/"+$('#hunyin').val()+"/"+$('#shengfen').val()+"/"+$('#chengshi').val()+"/"+$('#xiaqu').val();
+        window.location.href = "search/getMoreData/"+con;
+
+       // alert(con);
+
+    });
+
+</script>
 
 </body>
 </html>
