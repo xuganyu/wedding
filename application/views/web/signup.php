@@ -60,7 +60,7 @@
 		<div class="middle-part">
 			<div class="reg-box-left">
 				<div class="reg-title-tip">请认真填写真实信息，即将为您开启寻爱之旅。</div>
-				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post" enctype="multipart/form-data" onsubmit="return check_form(this);">
+				<form id="register_form" action="<?php echo site_url('web/signup/register'); ?>" method="post" onsubmit="return check_form(this);">
 				<div class="reg-form">
 					<!-- 性别 -->
 					<div class="col-form">
@@ -322,7 +322,7 @@
 					<div class="col-form">
 						<label>我的照片：</label>
 						<div class="za-item-selector">
-							<input type="button" id="photo_input" style="width: 260px;text-align: left;" value="+ 点击上传照片">
+							<button id="photo_input" type="button" style="width: 260px;text-align: left;background: #F8F8F8 none repeat scroll 0 0;border: 1px solid #c9c9c9;border-radius: 4px;cursor: pointer;height: 29px;padding-left: 15px;position: relative;overflow: hidden;float: left;color: #666;font: 12px/1.5 tahoma,arial,ËÎÌå;">+ 点击上传照片</button>
 							<input type="hidden" id="photo_up" name="photo">
 						</div>
 						<b class="check_tip" id="photo_tip"></b>

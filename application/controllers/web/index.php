@@ -20,15 +20,15 @@ class Index extends CI_Controller {
 		//用户展示
 		if($this->session->userdata('user_login')){
 		    $current_user = $this->db->where('Id', $this->session->userdata('user_id'))->get('wudi_user_info')->row_array();
-		    if(strcmp($current_user['sex'], '男') == 0){
-		        $data['sex'] = '男';
+		    if(strcmp($current_user['sex'], '1') == 0){
+		        $data['sex'] = '1';
 		        $data['females'] = $this->main_mod->get_females();
 		    }else{
-		        $data['sex'] = '女';
+		        $data['sex'] = '2';
 		        $data['males'] = $this->main_mod->get_males();
 		    }
 		}else{
-		    $data['sex'] = '未知';
+		    $data['sex'] = '0';
 	        $data['females'] = $this->main_mod->get_females();
 	        $data['males'] = $this->main_mod->get_males();
 		}

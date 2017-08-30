@@ -262,8 +262,7 @@ body { behavior:url("csshover.htc"); }
     </div>
   
     <div class="footer3">
-      <P>版权所有 © 2007-2017 北京xxx有限公司</P>
-      <P>热门推荐：北京婚纱摄影、北京婚纱影楼、婚纱照或婚纱摄影外景，尽在蒙娜丽莎！</P>
+      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
     </div>
   </div>
 </div>

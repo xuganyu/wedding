@@ -51,6 +51,7 @@ function get_user_info(){
 	    $data['user_name'] = $CI->session->userdata('user_name');
 	    $data['user_nickname'] = $CI->session->userdata('user_nickname');
 	    $data['user_photo'] = $CI->session->userdata('user_photo');
+	    $data['user_sex'] = $CI->session->userdata('user_sex');
 	    return $data;
 	}
 }

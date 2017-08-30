@@ -29,6 +29,7 @@ class Login extends CI_Controller {
 	        $this->session->set_userdata('user_name', $query['username']);
 	        $this->session->set_userdata('user_nickname', $query['nickname']);
 	        $this->session->set_userdata('user_photo', $query['photo']);
+	        $this->session->set_userdata('user_sex', $query['sex']);
 	        redirect('web/index');
 	    }
 	}

@@ -171,7 +171,7 @@ body { behavior:url("csshover.htc"); }
   </div>
 </div>
 <!-- 用户展示 --> 
-<?php if(strcmp($sex, '女') == 0){?>    
+<?php if(strcmp($sex, '2') == 0){?>    
 <div class="zs">
   <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_15_01.jpg"); ?>) no-repeat;">
     <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
@@ -182,7 +182,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="#">
-                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>"/>
+                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
@@ -198,7 +198,7 @@ body { behavior:url("csshover.htc"); }
             <LI style="margin-bottom: 20px;">
             <div class="boxgrid captionfull"> 
                 <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
-                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>" width="100%" height="100%"/>
                 </a>
                 <div class="cover boxcaption">
                     <h3>期待您的加入</h3>
@@ -213,7 +213,7 @@ body { behavior:url("csshover.htc"); }
     </UL>
   </div>
 </div>
-<?php }else if(strcmp($sex, '男') == 0){?>
+<?php }else if(strcmp($sex, '1') == 0){?>
 <div class="zs">
   <div class="njzs_bt"style="background:url(<?php echo base_url("zeros/web/images/ban-7_16_01.jpg"); ?>) no-repeat;">
     <div class="zxli_more"><a href="<?php echo site_url('web/search'); ?>"><img src="<?php echo base_url('zeros/web/images/MORE.jpg'); ?>" title="更多" /></a></div>
@@ -224,7 +224,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="#">
-                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>"/>
+                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?> width="100%" height="100%""/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
@@ -240,7 +240,7 @@ body { behavior:url("csshover.htc"); }
             <LI style="margin-bottom: 20px;">
             <div class="boxgrid captionfull"> 
                 <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
-                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>" width="100%" height="100%"/>
                 </a>
                 <div class="cover boxcaption">
                     <h3>期待您的加入</h3>
@@ -266,7 +266,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="#">
-                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>"/>
+                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
@@ -282,7 +282,7 @@ body { behavior:url("csshover.htc"); }
             <LI style="margin-bottom: 20px;">
             <div class="boxgrid captionfull"> 
                 <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
-                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>" width="100%" height="100%"/>
                 </a>
                 <div class="cover boxcaption">
                     <h3>期待您的加入</h3>
@@ -307,7 +307,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="#">
-                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>"/>
+                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
@@ -323,7 +323,7 @@ body { behavior:url("csshover.htc"); }
             <LI style="margin-bottom: 20px;">
             <div class="boxgrid captionfull"> 
                 <a href="<?php echo site_url('web/signup'); ?>" target="_blank">
-                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>"/>
+                    <img src="<?php echo base_url('zeros/web/images/04.jpg'); ?>" width="100%" height="100%"/>
                 </a>
                 <div class="cover boxcaption">
                     <h3>期待您的加入</h3>
@@ -433,8 +433,7 @@ body { behavior:url("csshover.htc"); }
     </div>
   
     <div class="footer3">
-      <P>版权所有 © 2007-2017 北京xxxx有限公司</P>
-      <P>热门推荐：北京婚纱摄影、北京婚纱影楼、婚纱照或婚纱摄影外景，尽在蒙娜丽莎！</P>
+      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
     </div>
   </div>
 </div>

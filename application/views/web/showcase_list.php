@@ -126,9 +126,8 @@
       </div>
       <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
     </div>
-   <div class="footer3">
-      <P>版权所有 © 2007-2012 北京蒙娜丽莎摄影有限公司</P>
-      <P>热门推荐：北京婚纱摄影、北京婚纱影楼、婚纱照或婚纱摄影外景，尽在蒙娜丽莎！</P>
+    <div class="footer3">
+      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
     </div>
   </div>
 </div>
