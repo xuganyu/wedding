@@ -122,7 +122,7 @@ body { behavior:url("csshover.htc"); }
   <div id="focus">
     <ul>
         <?php foreach($banner as $item){?>
-            <li> <a href="http://<?php echo $item["banner_url"]; ?>" target="blank"> <img  src="<?php echo base_url("uploads/".$item["banner_thumb"]); ?>" alt="<?php echo $item["banner_title"]; ?>"> </a>
+            <li> <a href="http://<?php echo $item["banner_url"]; ?>" target="blank"> <img  src="<?php echo base_url("uploads/".$item["banner_thumb"]); ?>" alt="<?php echo $item["banner_title"]; ?>" style="width: 100%;height: 100%;"> </a>
             </li>
         <?php } ?>
     </ul>
@@ -181,12 +181,12 @@ body { behavior:url("csshover.htc"); }
         <?php foreach ($males as $male){?>
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
-            <a href="#">
+            <a href="<?php echo site_url('web/search/info/'.$male['Id']); ?>" target="_blank">
                 <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
-                <p>地区&nbsp;&nbsp;<?php echo $male['area']; ?></p>
+                <p>地区&nbsp;&nbsp;<?php if(empty($male['country'])){ echo $male['province'].'-'.$male['city']; } else { echo $male['province'].'-'.$male['city'].'-'.$male['country']; }?></p>
                 <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($male['regtime']))?></p>
             </div>
         </div>
@@ -223,12 +223,12 @@ body { behavior:url("csshover.htc"); }
         <?php foreach ($females as $female){?>
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
-            <a href="#">
+            <a href="<?php echo site_url('web/search/info/'.$female['Id']); ?>" target="_blank">
                 <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?> width="100%" height="100%""/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
-                <p>地区&nbsp;&nbsp;<?php echo $female['area']; ?></p>
+                <p>地区&nbsp;&nbsp;<?php if(empty($female['country'])){ echo $female['province'].'-'.$female['city']; } else { echo $female['province'].'-'.$female['city'].'-'.$female['country']; }?></p>
                 <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($female['regtime']))?></p>
             </div>
         </div>
@@ -265,12 +265,12 @@ body { behavior:url("csshover.htc"); }
         <?php foreach ($males as $male){?>
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
-            <a href="#">
+            <a href="<?php echo site_url('web/search/info/'.$male['Id']); ?>" target="_blank">
                 <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
-                <p>地区&nbsp;&nbsp;<?php echo $male['area']; ?></p>
+                <p>地区&nbsp;&nbsp;<?php if(empty($male['country'])){ echo $male['province'].'-'.$male['city']; } else { echo $male['province'].'-'.$male['city'].'-'.$male['country']; }?></p>
                 <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($male['regtime']))?></p>
             </div>
         </div>
@@ -306,12 +306,12 @@ body { behavior:url("csshover.htc"); }
         <?php foreach ($females as $female){?>
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
-            <a href="#">
+            <a href="<?php echo site_url('web/search/info/'.$female['Id']); ?>" target="_blank">
                 <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
-                <p>地区&nbsp;&nbsp;<?php echo $female['area']; ?></p>
+                <p>地区&nbsp;&nbsp;<?php if(empty($female['country'])){ echo $female['province'].'-'.$female['city']; } else { echo $female['province'].'-'.$female['city'].'-'.$female['country']; }?></p>
                 <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($female['regtime']))?></p>
             </div>
         </div>
@@ -367,73 +367,19 @@ body { behavior:url("csshover.htc"); }
       </LI>
     <?php }?>
     <?php }?>
-      <!-- <LI>
-        <a href="#"><img src="<?php echo base_url('zeros/web/images/08.jpg'); ?>" /></a>
-        <P>生如夏花</P>
-        <I>POST TIME:2013-01-08</I>
-      </LI>
-      <LI>
-        <a href="#"><img src="<?php echo base_url('zeros/web/images/07.jpg'); ?>" /></a>
-        <P>生如夏花</P>
-        <I>POST TIME:2013-01-08</I>
-      </LI>
-      <LI>
-        <a href="#"><img src="<?php echo base_url('zeros/web/images/08.jpg'); ?>" /></a>
-        <P>生如夏花</P>
-        <I>POST TIME:2013-01-08</I>
-      </LI>
-      <LI>
-        <a href="#"><img src="<?php echo base_url('zeros/web/images/07.jpg'); ?>" /></a>
-        <P>生如夏花</P>
-        <I>POST TIME:2013-01-08</I>
-      </LI> -->
     </UL>
   </div>
 </div>
 
-<!-- 热门套系 -->
-<!-- <div class="rm">
-  <div class="rm_bt">
-    <div class="bt_top">
-      <div class="kp_more"><A href="#"><img src="<?php echo base_url('zeros/web/images/more_01.jpg'); ?>" title="更多"/></A></div>
-      <div class="kp_more"><A href="#top"><img src="<?php echo base_url('zeros/web/images/top.jpg'); ?>" title="返回顶部"/></A></div>
-    </div>
-  </div>
-  <div class="kp_kon"></div>
-  <div class="rm_nei">
-    <UL>
-      <LI><div class="rm_A"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
-      <LI><div class="rm_B"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
-      <LI><div class="rm_C"><div class="rm_more"><A href="#" title="查看更多">MORE</A></div></div></LI>
-    </UL>
-  </div>
-</div> -->
-<div class="home" style="padding-bottom: 0;"></div>
-
 <!-- 尾部 -->
 <div class="tiao"></div>
-<div class="footer">
-  <div class="footer_01">
-    <div class="footer1">
-      <div class="f_nav">
-        <UL>
-          <LI><a href="#"><P>返回首页</P><P>HOME</P></a></LI>
-          <LI><a href="#"><P>关于我们</P><P>ABOUT US</P></a></LI>
-          <LI><a href="#"><P>作品展示</P><P>WORKS</P></a></LI>
-          <LI><a href="#"><P>服务价格</P><P>SERVICES</P></a></LI>
-          <LI><a href="#"><P>外景地</P><P>SPCATICNS</P></a></LI>
-          <LI><a href="#"><P>最新动态</P><P>NEWS</P></a></LI>
-          <LI><a href="#"><P>联系我们</P><P>CONTACT</P></a></LI>
-          <LI><a href="#"><P>客户交流</P><P>BBS</P></a></LI>
-          <LI><a href="#"><P>在线订单</P><P>ORDER</P></a></LI>
-          <LI><a href="#"><P>视频展示</P><P>VIDEO</P></a></LI>
-        </UL>
-      </div>
-      <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
+<div class="footer" style="height: 155px;">
+  <div class="footer_01" style="height: 155px;">
+    <div class="footer1" style="height: 60px;">
+      <div class="f_top" style="float: right;"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
     </div>
-  
     <div class="footer3">
-      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
+      <P>Copyright © 20xx-2017 版权所有：北京航天亿成信息咨询服务中心</P>
     </div>
   </div>
 </div>

@@ -37,7 +37,7 @@ class Main_mod extends CI_Model{
 	 * 获取男用户的信息
 	 */
 	public function get_males(){
-	    $count_male = $this->db->where('sex', 1)->count_all('wudi_user_info');
+	    $count_male = count($this->db->where('sex', 1)->get('wudi_user_info')->result_array());
 	    if($count_male >= 8){
 	        $start = rand(0, $count_male-8);
 	        $this->db->where('sex', 1);
@@ -55,7 +55,7 @@ class Main_mod extends CI_Model{
 	 * 获取女用户的信息
 	 */
 	public function get_females(){
-	    $count_female = $this->db->where('sex', 2)->count_all('wudi_user_info');
+	    $count_female = count($this->db->where('sex', 2)->get('wudi_user_info')->result_array());
 	    if($count_female >= 8){
 	        $start = rand(0, $count_female-8);
 	        $this->db->limit(8, $start);

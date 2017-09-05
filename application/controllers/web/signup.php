@@ -62,13 +62,11 @@ class Signup extends CI_Controller {
 	        'password' => $password,
 	        'regtime' => date('Y-m-d H:i:s'),
 	        'intro' => $intro,
-	        'age' => $age
+	        'age' => $age,
+	        'province' => $province,
+	        'city' => $city,
+	        'country' => $country
 	    );
-	    if(empty($country)){
-	        $data['area'] = $province.'-'.$city;
-	    }else{
-	        $data['area'] = $province.'-'.$city.'-'.$country;
-	    }
 	    if(empty($nickname)){
 	        $data['nickname'] = '用户_'.$phone;
 	    }else{

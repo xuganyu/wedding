@@ -24,9 +24,9 @@ ul,ol,li,dl,dt,dd { margin:0; padding:0; list-style-type:none;}
 .banner { width:100%; padding-bottom:16px; margin-bottom:11px; background:url(../images/ban-7_07.jpg) bottom repeat-x; overflow:hidden;}
 
 /* 焦点图代码 开始 */
-#focus {width:1583px; height:464px; overflow:hidden; position:relative; margin:0 auto;}
+#focus {height:464px; overflow:hidden; position:relative; margin:0 auto;}
 #focus ul {height:500px; position:absolute;}
-#focus ul li {float:left; width:1583px; height:464px; overflow:hidden; position:relative; background:#FFF;}
+#focus ul li {float:left; width:100%; height:464px; overflow:hidden; position:relative; background:#FFF;}
 #focus ul li div {position:absolute; overflow:hidden;}
 #focus .btnBg {position:absolute; width:1583px; height:40px; left:0; bottom:0; background:#000;}
 #focus .btn {position:absolute; width:1583px; height:12px; padding:14px 0; right:0; bottom:0; text-align:center;}
@@ -282,9 +282,9 @@ h3 { padding:4px 7px 1px; 7px; line-height:25px;color: #FFF; font-family:\5b8b\4
 .top-link a {
 	float: right;
     width: 90px;
-    height: 36px;
-    line-height: 36px;
-    background-color: #FF0964;
+    height: 31px;
+    line-height: 31px;
+    background-color: #DF227C;
     border-radius: 1px;
     color: #fff;
     transition: background-color .3s;
@@ -292,7 +292,7 @@ h3 { padding:4px 7px 1px; 7px; line-height:25px;color: #FFF; font-family:\5b8b\4
     font-size: 16px;
     text-decoration: none;
     margin-left: 8px;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 .top-link a:hover {
 	background-color: #E85582;

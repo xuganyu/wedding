@@ -88,23 +88,19 @@ a {
 	border-radius: 7px;
 }
 .reg-box-left {
-	width: 785px;
+	width: 570px;
 	padding-bottom: 100px;
 	border-radius: 2px;
 	background-color: white;
-	margin: 40px auto;
+	margin-top: 40px;
+	float: left;
+	padding-left: 65px;
 }
 .reg-box-right {
-	width: 220px;
-	float: right;
-	background-color: white;
-	position: relative;
-	padding-bottom: 100px;
-	top: 20px;
-	right: 10px;
-	box-shadow: 0 0 6px 0 #f1f1f1;
-	font: 15px/53px 'Microsoft Yahei';
-	color: #666;
+	width: 200px;
+	float: left;
+	height: 300px;
+	margin: 60px auto;
 }
 .reg-box h2 {
     border-bottom: 1px solid #d0d0d0;
@@ -220,6 +216,10 @@ a {
     text-align: center;
     width: 77px;
 	overflow: hidden;
+}
+.za-item-selector p {
+	text-align: left;
+	line-height: 32px;
 }
 #BirthdaySelector.za-item-selector dt .cData {
     text-indent: -15px;

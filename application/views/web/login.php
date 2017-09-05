@@ -206,32 +206,16 @@ body { behavior:url("csshover.htc"); }
 </div>
 
 
-<div class="home" style="padding-bottom: 0;"></div>
 <div class="tiao"></div>
 
 <!-- 尾部 -->
-<div class="footer">
-  <div class="footer_01">
-    <div class="footer1">
-      <div class="f_nav">
-        <UL>
-          <LI><a href="#"><P>返回首页</P><P>HOME</P></a></LI>
-          <LI><a href="#"><P>关于我们</P><P>ABOUT US</P></a></LI>
-          <LI><a href="#"><P>作品展示</P><P>WORKS</P></a></LI>
-          <LI><a href="#"><P>服务价格</P><P>SERVICES</P></a></LI>
-          <LI><a href="#"><P>外景地</P><P>SPCATICNS</P></a></LI>
-          <LI><a href="#"><P>最新动态</P><P>NEWS</P></a></LI>
-          <LI><a href="#"><P>联系我们</P><P>CONTACT</P></a></LI>
-          <LI><a href="#"><P>客户交流</P><P>BBS</P></a></LI>
-          <LI><a href="#"><P>在线订单</P><P>ORDER</P></a></LI>
-          <LI><a href="#"><P>视频展示</P><P>VIDEO</P></a></LI>
-        </UL>
-      </div>
-      <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
+<div class="footer" style="height: 155px;">
+  <div class="footer_01" style="height: 155px;">
+    <div class="footer1" style="height: 60px;">
+      <div class="f_top" style="float: right;"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
     </div>
-  
     <div class="footer3">
-      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
+      <P>Copyright © 20xx-2017 版权所有：北京航天亿成信息咨询服务中心</P>
     </div>
   </div>
 </div>

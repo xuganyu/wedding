@@ -190,46 +190,45 @@ $(function(){
   <div class="tel_03">312</div>
 </div> -->
 <div id="main_demo" style="text-align: center;height: 50px;line-height: 50px;">
-<div style="margin: 0 auto;">
- 搜索意中人：  
-<select id="sex_select" name="sex">
-  <option value="0">性别</option>
-  <option value="1">男士</option>
-  <option value="2">女士</option>
-</select>
-<select id="age_select" name="age">
-  <option value="0">年龄</option>
-  <option value="1">18-28</option>
-  <option value="2">28-38</option>
-  <option value="3">38-48</option>
-  <option value="4">48-58</option>
-  <option value="5">58-68</option>
-</select>
-<select id="edu_select" name="edu">
-  <option value="0">学历</option>
-  <option value="1">高中中专以下</option>
-  <option value="2">大专</option>
-  <option value="3">本科</option>
-  <option value="4">双学士</option>
-  <option value="5">硕士</option>
-  <option value="6">博士</option>
-  <option value="7">博士后</option>
-</select>
-<select id="salary_select" name="salary">
-  <option value="0">月收入</option>
-  <option value="1">2000元以下</option>
-  <option value="2">2000-5000元</option>
-  <option value="3">5000-10000元</option>
-  <option value="4">10000-20000元</option>
-  <option value="5">20000-50000元</option>
-  <option value="6">50000元以上</option>
-</select>
-    <button type="button" class="btn btn-default" id="searchData">确定</button>
-    <a  class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal">更多条件查找</a>
-
-
+    <form action="<?php echo site_url('web/search'); ?>" method="get" style="margin: 0 auto;">
+               搜索意中人：  
+            <select id="sex_select" name="sex">
+              <option value="0">性别</option>
+              <option value="1">男士</option>
+              <option value="2">女士</option>
+            </select>
+            <select id="age_select" name="age">
+              <option value="0">年龄</option>
+              <option value="1">18-28</option>
+              <option value="2">28-38</option>
+              <option value="3">38-48</option>
+              <option value="4">48-58</option>
+              <option value="5">58-68</option>
+            </select>
+            <select id="edu_select" name="edu">
+              <option value="0">学历</option>
+              <option value="1">高中中专以下</option>
+              <option value="2">大专</option>
+              <option value="3">本科</option>
+              <option value="4">双学士</option>
+              <option value="5">硕士</option>
+              <option value="6">博士</option>
+              <option value="7">博士后</option>
+            </select>
+            <select id="salary_select" name="salary">
+              <option value="0">月收入</option>
+              <option value="1">2000元以下</option>
+              <option value="2">2000-5000元</option>
+              <option value="3">5000-10000元</option>
+              <option value="4">10000-20000元</option>
+              <option value="5">20000-50000元</option>
+              <option value="6">50000元以上</option>
+            </select>
+            <button type="submit" class="btn btn-default" id="searchData">确定</button>
+        <a  class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal">更多条件查找</a>
+    </form>
 </div>
-</div>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -239,59 +238,61 @@ $(function(){
         <h4 class="modal-title" id="myModalLabel">条件查询</h4>
       </div>
       <div class="modal-body" style="text-align: center;">
-        <div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
-    		<select id="xingbie" name="sex">
-    		  <option value="0">性别</option>
-    		  <option value="1">男士</option>
-    		  <option value="2">女士</option>
-    		</select>
-            <select id="nianling" name="age">
-    		  <option value="0">年龄</option>
-    		  <option value="1">18-28</option>
-    		  <option value="2">29-39</option>
-    		  <option value="3">40-49</option>
-    		  <option value="4">50-59</option>
-    		  <option value="5">60-70</option>
-    		</select>
-    		<select id="xueli" name="edu">
-    		  <option value="0">学历</option>
-    		  <option value="1">高中中专及以下</option>
-    		  <option value="2">大专</option>
-    		  <option value="3">本科</option>
-    		  <option value="4">双学士</option>
-    		  <option value="5">硕士</option>
-    		  <option value="6">博士</option>
-    		  <option value="7">博士后</option>
-    		</select>
-        </div>
-        <div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
-    		<select id="yueshouru" name="salary">
-    		  <option value="0">月收入</option>
-    		  <option value="1">2000元以下</option>
-    		  <option value="2">2000-5000元</option>
-    		  <option value="3">5000-10000元</option>
-    		  <option value="4">10000-20000元</option>
-    		  <option value="5">20000-50000元</option>
-    		  <option value="6">50000元以上</option>
-    		</select>
-    		<select id="hunyin" name="marriage">
-    		  <option value="0">婚姻</option>
-    		  <option value="1">未婚</option>
-    		  <option value="2">离异</option>
-    		  <option value="3">丧偶</option>
-    		</select>
-    		<select id="shengfen" name="province">
-    		  <option value="0">省份</option>
-    		</select>
-		</div>
-		<div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
-    		<select id="chengshi" name="city">
-    		  <option value="0">城市</option>
-    		</select>
-    		<select id="xiaqu" name="country">
-    		  <option value="0">辖区</option>
-    		</select>
-		</div>
+        <form action="<?php echo site_url('web/search'); ?>" method="get" id="search_options_modal">
+            <div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
+        		<select id="xingbie" name="sex">
+        		  <option value="0">性别</option>
+        		  <option value="1">男士</option>
+        		  <option value="2">女士</option>
+        		</select>
+                <select id="nianling" name="age">
+        		  <option value="0">年龄</option>
+        		  <option value="1">18-28</option>
+        		  <option value="2">29-39</option>
+        		  <option value="3">40-49</option>
+        		  <option value="4">50-59</option>
+        		  <option value="5">60-70</option>
+        		</select>
+        		<select id="xueli" name="edu">
+        		  <option value="0">学历</option>
+        		  <option value="1">高中中专及以下</option>
+        		  <option value="2">大专</option>
+        		  <option value="3">本科</option>
+        		  <option value="4">双学士</option>
+        		  <option value="5">硕士</option>
+        		  <option value="6">博士</option>
+        		  <option value="7">博士后</option>
+        		</select>
+            </div>
+            <div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
+        		<select id="yueshouru" name="salary">
+        		  <option value="0">月收入</option>
+        		  <option value="1">2000元以下</option>
+        		  <option value="2">2000-5000元</option>
+        		  <option value="3">5000-10000元</option>
+        		  <option value="4">10000-20000元</option>
+        		  <option value="5">20000-50000元</option>
+        		  <option value="6">50000元以上</option>
+        		</select>
+        		<select id="hunyin" name="marriage">
+        		  <option value="0">婚姻</option>
+        		  <option value="1">未婚</option>
+        		  <option value="2">离异</option>
+        		  <option value="3">丧偶</option>
+        		</select>
+        		<select id="shengfen" name="province">
+        		  <option value="0">省份</option>
+        		</select>
+    		</div>
+    		<div style="width: 460px;text-align: left;height: 50px;line-height: 50px;margin: 0 auto;">
+        		<select id="chengshi" name="city">
+        		  <option value="0">城市</option>
+        		</select>
+        		<select id="xiaqu" name="country">
+        		  <option value="0">辖区</option>
+        		</select>
+    		</div>
+		</form>
       </div>
 
       <div class="modal-footer">
@@ -309,21 +310,21 @@ $(function(){
     <div class="bt_03"></div>
     <div class="bt_04"></div>
     <!--<div class="bt_05"><A href="#">年龄排序</A>·<A href="#">注册时间</A>·<A href="#">收入排序</A></div>-->
-  </div>
+  </div><div style="width: 100%;height: 20px;"></div>
         <div class="zs">
 
-            <div class="zs_nei" style="background: none;height: 642px;">
+            <div class="zs_nei" style="background: none;padding-left: 50px;width: 985px;">
                 <UL>
-                    <?php foreach ($name as $item){?>
+                    <?php foreach ($list as $item){?>
                         <LI style="margin-bottom: 20px;">
-                            <div class="boxgrid captionfull">
-                                <a href="search/info/<?php echo $item->Id ?>" >
-                                    <img src="<?php echo base_url('uploads/user/'.substr($item->photo, 0, 6).'/'.$item->photo); ?>"/>
+                            <div class="boxgrid captionfull" style="border: 1px solid #ddd;">
+                                <a href="<?php echo site_url('web/search/info/'.$item['Id']); ?>" target="_blank">
+                                    <img src="<?php echo base_url('uploads/user/'.substr($item['photo'], 0, 6).'/'.$item['photo']); ?>" width="100%" height="100%"/>
                                 </a>
                                 <div class="cover boxcaption">
-                                    <h3><?php echo $item->nickname; ?> </h3>
-                                    <p>地区&nbsp;&nbsp;<?php echo $item->area; ?></p>
-                                    <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($item->regtime))?></p>
+                                    <h3 style="line-height: 0;padding: 0px 7px 1px;"><?php echo $item['nickname']; ?> </h3>
+                                    <p style="line-height: 9px;">地区&nbsp;&nbsp;<?php if(empty($item['country'])){ echo $item['province'].'-'.$item['city']; }else{ echo $item['province'].'-'.$item['city'].'-'.$item['country']; }?></p>
+                                    <p>注册时间&nbsp;&nbsp;<?php echo date('Y-m-d', strtotime($item['regtime']))?></p>
                                 </div>
                             </div>
                         </LI>
@@ -332,86 +333,70 @@ $(function(){
                 </UL>
             </div>
             <div class="clear"></div>
-
-            <div class="pages">
-                <?php if($page > 1){?>
-                    <div class="page">
-                        <a class="btn btn-default" href="<?php if($cur_page!=1){$prev=$cur_page-1;echo site_url("/web/search/index/".$prev);}else{echo "javascript:";} ?>">上一页</a>
-
-                        <a class="btn btn-default" href="<?php if($page!=$cur_page){$next=$cur_page+1;echo site_url("/web/search/index/".$next);}else{echo "javascript:";} ?>">下一页</a>
-
-                    </div>
-                <?php } ?>
+            <br/>
+            <div style="width: 785px;height: 50px;margin: 0 auto;text-align: center;">
+                <div class="img_pagr" style="padding-left: 0;">
+                    <?php if($page > 1){?>
+                        <a style="float: left;border-radius: 3px;" href="<?php if($id_c!=1){$prev=$id_c-1;echo site_url("web/search/index?sex=".$sex."&age=".$age."&edu=".$edu."&salary=".$salary."&marriage=".$marriage."&province=".$province."&city=".$city."&country=".$country."&per_page=".$prev);}else{echo "javascript:;";} ?>">上一页</a>
+                        <a style="float: right;border-radius: 3px;" href="<?php if($id_c!=$page){$next=$id_c+1;echo site_url("web/search/index?sex=".$sex."&age=".$age."&edu=".$edu."&salary=".$salary."&marriage=".$marriage."&province=".$province."&city=".$city."&country=".$country."&per_page=".$next);}else{echo "javascript:;";} ?>">下一页</a>
+                    <?php } ?>
+                </div>
             </div>
+            <br />
         </div>
+    </div>
   <div class="clear"></div>
 
 
 <!-- 热门套系 -->
 
-<div class="home"></div>
+<div class="tiao"></div>
 
 <!-- 尾部 -->
-<div class="footer">
-  <div class="footer_01">
-    <div class="footer1">
-      <div class="f_nav">
-        <UL>
-          <LI><a href="#"><P>返回首页</P><P>HOME</P></a></LI>
-          <LI><a href="#"><P>关于我们</P><P>ABOUT US</P></a></LI>
-          <LI><a href="#"><P>作品展示</P><P>WORKS</P></a></LI>
-          <LI><a href="#"><P>服务价格</P><P>SERVICES</P></a></LI>
-          <LI><a href="#"><P>外景地</P><P>SPCATICNS</P></a></LI>
-          <LI><a href="#"><P>最新动态</P><P>NEWS</P></a></LI>
-          <LI><a href="#"><P>联系我们</P><P>CONTACT</P></a></LI>
-          <LI><a href="#"><P>客户交流</P><P>BBS</P></a></LI>
-          <LI><a href="#"><P>在线订单</P><P>ORDER</P></a></LI>
-          <LI><a href="#"><P>视频展示</P><P>VIDEO</P></a></LI>
-        </UL>
-      </div>
-      <div class="f_top"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
+<div class="footer" style="height: 155px;">
+  <div class="footer_01" style="height: 155px;">
+    <div class="footer1" style="height: 60px;">
+      <div class="f_top" style="float: right;"><a href="#top"><img src="<?php echo base_url('zeros/web/images/ban-7_30_02.jpg'); ?>" /></a></div>
     </div>
-  
     <div class="footer3">
-      <P>Copyright © 20xx-2017 版权所有：北京xxxx有限公司</P>
+      <P>Copyright © 20xx-2017 版权所有：北京航天亿成信息咨询服务中心</P>
     </div>
   </div>
 </div>
 <script src="<?php echo base_url('zeros/web/js/bootstrap.min.js'); ?>"></script>
 <script>
 
-    $('#searchData').click(function(){
-
-
-
-        var con=$('#sex_select').val()+"/"+$('#age_select').val()+"/"+$('#edu_select').val()+"/"+$('#salary_select').val();
-        window.location.href = "search/getData/"+con;
-
-
-
-
-        /* $.ajax({
-
-             type: "GET",
-             url: "search/getData",
-             data: {username:$('#sex_select').val()},
-             dataType: "json",
-             success: function(data){
-
-             }
-         });*/
-
-    });
     $('#searchMore').click(function(){
-
-
-        var con=$('#xingbie').val()+"/"+$('#nianling').val()+"/"+$('#xueli').val()+"/"+$('#yueshouru').val()+"/"+$('#hunyin').val()+"/"+$('#shengfen').val()+"/"+$('#chengshi').val()+"/"+$('#xiaqu').val();
-        window.location.href = "search/getMoreData/"+con;
-
-       // alert(con);
-
+        $('#search_options_modal').submit();
     });
-
+    $(document).ready(function(){
+        var sex = '<?php echo $sex?>', age = '<?php echo $age?>', edu = '<?php echo $edu?>', salary = '<?php echo $salary?>',
+            marriage = '<?php echo $marriage?>', province = '<?php echo $province?>', city = '<?php echo $city?>', country = '<?php echo $country?>';
+        if(sex != '' && sex != '0'){
+            $("select[name='sex']").val(sex);
+        }
+        if(age != '' && age != '0'){
+            $("select[name='age']").val(age);
+        }
+        if(edu != '' && edu != '0'){
+            $("select[name='edu']").val(edu);
+        }
+        if(salary != '' && salary != '0'){
+            $("select[name='salary']").val(salary);
+        }
+        if(marriage != '' && marriage != '0'){
+            $("select[name='marriage']").val(marriage);
+        }
+        if(province != '' && province != '0'){
+            $("select[name='province']").val(province);
+        }
+        if(city != '' && city != '0'){
+            $("select[name='city']").val(city);
+        }
+        if(country != '' && country != '0'){
+            $("select[name='country']").val(country);
+        }
+    });
 </script>
 
 </body>
