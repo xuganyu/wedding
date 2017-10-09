@@ -77,14 +77,27 @@ class Signup extends CI_Controller {
 	    if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
 	        //匹配成功
             $image_name = date("YmdHis").rand(00,9999).'.'.$result[2];
-	        $image_file = $_SERVER['DOCUMENT_ROOT'].'/uploads/user/'.$image_name;
 	        //服务器文件存储路径
-	        if (file_put_contents($image_file, base64_decode(str_replace($result[1], '', $base64_image)))){
-	            $data['photo'] = $image_name;
-        	    $this->db->insert('wudi_user_info', $data);
-        	    redirect('web/login');
+            $root = explode('/index.', $_SERVER['SCRIPT_FILENAME']);
+	        $image_file = $root[0].'/uploads/user/'.$image_name;
+	        $image_doc = $root[0].'/uploads/user/';
+	        if(is_writable($image_doc)){
+		        if (file_put_contents($image_file, base64_decode(str_replace($result[1], '', $base64_image)))){
+		            $data['photo'] = $image_name;
+	        	    $this->db->insert('wudi_user_info', $data);
+	        	    redirect('web/login');
+		        }else{
+	    	        alert('请勿上传过大的照片');
+		        }
 	        }else{
-    	        alert('请勿上传过大的照片');
+	        	chmod($image_doc, 0777);
+	        	if (file_put_contents($image_file, base64_decode(str_replace($result[1], '', $base64_image)))){
+	        		$data['photo'] = $image_name;
+	        		$this->db->insert('wudi_user_info', $data);
+	        		redirect('web/login');
+	        	}else{
+	        		alert('请勿上传过大的照片');
+	        	}
 	        }
 	    }else{
 	        alert('请选择照片');
