@@ -1,17 +1,21 @@
 <div class="leftnav">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
-  <h2><span class="icon-home"></span>新闻图管理</h2>
+  <h2><span class="icon-home"></span>图片管理</h2>
   <ul>
-    <li><a href="<?php echo site_url("admin/newsmap");?>" target="right"><span class="icon-caret-right"></span>新闻图列表</a></li>
-    <li><a href="<?php echo site_url("admin/ad");?>" target="right"><span class="icon-caret-right"></span>广告图管理</a></li>
+    <li><a href="<?php echo site_url("admin/newsmap");?>" target="right"><span class="icon-caret-right"></span>轮播图列表</a></li>
+    <li><a href="<?php echo site_url("admin/ad");?>" target="right"><span class="icon-caret-right"></span>广告图列表</a></li>
   </ul>   
-  <h2><span class="icon-pencil-square-o"></span>活动管理</h2>
+  <h2><span class="icon-gift"></span>活动管理</h2>
   <ul>
     <li><a href="<?php echo site_url("admin/news");?>" target="right"><span class="icon-caret-right"></span>活动列表</a></li>
   </ul>
-  <h2><span class="icon-pencil-square-o"></span>案例管理</h2>
+  <h2><span class="icon-book"></span>案例管理</h2>
   <ul>
     <li><a href="<?php echo site_url("admin/stories");?>" target="right"><span class="icon-caret-right"></span>成功故事</a></li>
+  </ul>
+  <h2><span class="icon-user"></span>会员管理</h2>
+  <ul>
+    <li><a href="<?php echo site_url("admin/users");?>" target="right"><span class="icon-caret-right"></span>会员列表</a></li>
   </ul>
 </div>
 <script type="text/javascript">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>会员注册</title>
+    <title>会员信息</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="<?php echo base_url('zeros/web/images/icon.png'); ?>" type="image/x-icon" />
     <link href="<?php echo base_url('zeros/web/css/sign.css'); ?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url('zeros/web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('zeros/web/js/cropper/cropper.css'); ?>" rel="stylesheet" type="text/css" media="all" />
 
     <script src="<?php echo base_url('zeros/web/js/jquery-2.1.4.min.js'); ?>"></script>
@@ -24,6 +25,37 @@
                 <a href="<?php echo site_url('web/signup')?>">注册</a>
                 <a href="<?php echo site_url('web/login')?>">登录</a>
             </div>
+        <?php }else{?>
+        <div class="pf-user">
+            <div class="pf-user-photo">
+                <img src="<?php echo base_url('uploads/user/'.$login['user_photo']); ?>" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+            </div>
+            <h4 class="pf-user-name ellipsis"><?php echo $login['user_nickname']; ?></h4>
+            <i class="fa fa-angle-double-down xiala"></i>
+
+            <div class="pf-user-panel">
+                <ul class="pf-user-opt">
+                    <li>
+                        <a href="<?php echo site_url('web/login/self_info');?>">
+                            <i class="fa fa-user-o"></i>
+                            <span class="pf-opt-name">用户信息</span>
+                        </a>
+                    </li>
+                    <li class="pf-modify-pwd">
+                    	<a href="<?php echo site_url('web/login/pwd');?>">
+                            <i class="fa fa-lock"></i>
+                            <span class="pf-opt-name">修改密码</span>
+                        </a>
+                    </li>
+                    <li class="pf-logout">
+                        <a href="<?php echo site_url('web/login/logout');?>">
+                            <i class="fa fa-power-off"></i>
+                            <span class="pf-opt-name">退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <?php }?>
     </div>
 </div>
@@ -149,7 +181,7 @@
         </div>
     </div>
     <div class="reg-box-right">
-        <img src="<?php echo base_url('uploads/user/'.substr($info[0]->photo, 0, 6).'/'.$info[0]->photo); ?>" width="200px" height="284px"/>
+        <img src="<?php echo base_url('uploads/user/'.$info[0]->photo); ?>" width="200px" height="284px"/>
     </div>
 </div>
 

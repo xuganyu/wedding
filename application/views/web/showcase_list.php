@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>活动推荐</title>
 <link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
 <link href="<?php echo base_url('zeros/web/css/default.min.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('zeros/web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
 <!--[if lte IE 6]>
        <style type="text/css">
        body { behavior:url("csshover.htc"); }
@@ -23,8 +24,35 @@
             <a href="<?php echo site_url('web/login')?>">登录</a>
         </div>
         <?php }else{?>
-        <div class="top-name">
-            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        <div class="pf-user">
+            <div class="pf-user-photo">
+                <img src="<?php echo base_url('uploads/user/'.$login['user_photo']); ?>" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+            </div>
+            <h4 class="pf-user-name ellipsis" style="margin-top: 0;"><?php echo $login['user_nickname']; ?></h4>
+            <i class="fa fa-angle-double-down xiala"></i>
+
+            <div class="pf-user-panel">
+                <ul class="pf-user-opt">
+                    <li>
+                        <a href="<?php echo site_url('web/login/self_info');?>">
+                            <i class="fa fa-user-o"></i>
+                            <span class="pf-opt-name">用户信息</span>
+                        </a>
+                    </li>
+                    <li class="pf-modify-pwd">
+                    	<a href="<?php echo site_url('web/login/pwd');?>">
+                            <i class="fa fa-lock"></i>
+                            <span class="pf-opt-name">修改密码</span>
+                        </a>
+                    </li>
+                    <li class="pf-logout">
+                        <a href="<?php echo site_url('web/login/logout');?>">
+                            <i class="fa fa-power-off"></i>
+                            <span class="pf-opt-name">退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <?php }?>
     </div>

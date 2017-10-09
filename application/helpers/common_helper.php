@@ -20,7 +20,9 @@ function islogin(){
 	$CI =& get_instance();
 	
 	if($CI->session->userdata('islogin') == false){
-		redirect("admin/login");
+// 		redirect("admin/login");
+	    //页面架构用iframe的情况
+	    echo '<script>window.parent.location.href = "../admin/login"</script>';
 	}
 }
 
@@ -52,7 +54,12 @@ function get_user_info(){
 	    $data['user_nickname'] = $CI->session->userdata('user_nickname');
 	    $data['user_photo'] = $CI->session->userdata('user_photo');
 	    $data['user_sex'] = $CI->session->userdata('user_sex');
-	    return $data;
+	    $user = $CI->db->where('Id', $data['user_id'])->get('wudi_user_info')->row_array();
+	    if(!empty($user)){
+    	    return $data;
+	    }else{
+	        return $user;
+	    }
 	}
 }
 

@@ -68,7 +68,7 @@ class Stories extends CI_Controller {
 	    );
 	    
 	    //文件上传配置
-	    $config['upload_path'] = './uploads/stories/'.date("Ym").'/';
+	    $config['upload_path'] = './uploads/stories/';
 	    $config['allowed_types'] = 'gif|jpg|jpeg|png';
 	    $config['max_size'] = '20480'; // 20M
 	    $config['max_width']  = '0';
@@ -78,7 +78,7 @@ class Stories extends CI_Controller {
 	        //创建日期格式的子文件夹
 	        $pasth = setPath("uploads/stories");
 	        $this->load->library('upload');
-	        $config['file_name'] = date("YmdHis").rand(00, 99);
+	        $config['file_name'] = date("YmdHis").rand(00, 9999);
 	        $this->upload->initialize($config);
 	    
 	        //上传
@@ -114,7 +114,7 @@ class Stories extends CI_Controller {
 	    );
 	     
 	    //文件上传配置
-	    $config['upload_path'] = './uploads/stories/'.date("Ym").'/';
+	    $config['upload_path'] = './uploads/stories/';
 	    $config['allowed_types'] = 'gif|jpg|jpeg|png';
 	    $config['max_size'] = '20480'; // 20M
 	    $config['max_width']  = '0';
@@ -122,14 +122,14 @@ class Stories extends CI_Controller {
 	     
 	    if($_FILES['image']['error'] != 4){
 	        $story = $this->db->where('id', $id)->get('wudi_stories_info')->row_array();
-	        $old_image = './uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image'];
+	        $old_image = './uploads/stories/'.$story['image'];
 	        if(file_exists($old_image)){
     	        unlink($old_image);
 	        }
 	        //创建日期格式的子文件夹
 	        $pasth = setPath("uploads/stories");
 	        $this->load->library('upload');
-	        $config['file_name'] = date("YmdHis").rand(00, 99);
+	        $config['file_name'] = date("YmdHis").rand(00, 9999);
 	        $this->upload->initialize($config);
 	         
 	        //上传
@@ -150,7 +150,7 @@ class Stories extends CI_Controller {
 	public function del() {
 	    $id = $this->uri->segment(4, 0);
 	    $story = $this->db->where('id', $id)->get('wudi_stories_info')->row_array();
-	    $image = './uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image'];
+	    $image = './uploads/stories/'.$story['image'];
 	    if(file_exists($image)){
 	        if(unlink($image)){
 	            $this->db->where('id', $id)->delete('wudi_stories_info');

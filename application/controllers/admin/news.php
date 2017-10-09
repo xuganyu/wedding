@@ -101,8 +101,6 @@ class News extends CI_Controller {
 	 */
 	public function del(){
 		$id = $this->uri->segment(4, 0);
-		$query = $this->db ->query("select article_thumb from kk_article where article_id = {$id}");
-		$row = $query->row_array();
 		$this->db->where('article_id', $id);
 		$this->db->delete('wudi_news_info');
 		alert("删除成功", "../news");

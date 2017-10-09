@@ -1,4 +1,3 @@
-<!-- @author 你哥 -->
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -11,6 +10,6 @@
 
 </head>
 <body>
-	页面demo
+	欢迎
 </body>
 </html>

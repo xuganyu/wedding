@@ -76,8 +76,8 @@ class Signup extends CI_Controller {
 	    $base64_image = str_replace(' ', '+', $photo);
 	    if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
 	        //匹配成功
-            $image_name = date("YmdHis").rand(00, 99).'.'.$result[2];
-	        $image_file = $_SERVER['DOCUMENT_ROOT']."/uploads/user/".date('Ym').'/'.$image_name;
+            $image_name = date("YmdHis").rand(00,9999).'.'.$result[2];
+	        $image_file = $_SERVER['DOCUMENT_ROOT'].'/uploads/user/'.$image_name;
 	        //服务器文件存储路径
 	        if (file_put_contents($image_file, base64_decode(str_replace($result[1], '', $base64_image)))){
 	            $data['photo'] = $image_name;

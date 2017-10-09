@@ -5,6 +5,7 @@
 <title>首页</title>
 <link rel="shortcut icon" href="<?php echo base_url('zeros/admin/images/icon.png'); ?>" type="image/x-icon" />
 <link href="<?php echo base_url('zeros/web/css/css.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('zeros/web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?php echo base_url('zeros/web/js/jquery.min.js'); ?>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -99,8 +100,35 @@ body { behavior:url("csshover.htc"); }
             <a href="<?php echo site_url('web/login')?>">登录</a>
         </div>
         <?php }else{?>
-        <div class="top-name">
-            <span>Hi, <a href="#" class="top-pointer"><?php echo $login['user_nickname']; ?>&nbsp;<span>&nbsp;▾&nbsp;</span></a></span>
+        <div class="pf-user">
+            <div class="pf-user-photo">
+                <img src="<?php echo base_url('uploads/user/'.$login['user_photo']); ?>" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+            </div>
+            <h4 class="pf-user-name ellipsis"><?php echo $login['user_nickname']; ?></h4>
+            <i class="fa fa-angle-double-down xiala"></i>
+
+            <div class="pf-user-panel">
+                <ul class="pf-user-opt">
+                    <li>
+                        <a href="<?php echo site_url('web/login/self_info');?>">
+                            <i class="fa fa-user-o"></i>
+                            <span class="pf-opt-name">用户信息</span>
+                        </a>
+                    </li>
+                    <li class="pf-modify-pwd">
+                    	<a href="<?php echo site_url('web/login/pwd');?>">
+                            <i class="fa fa-lock"></i>
+                            <span class="pf-opt-name">修改密码</span>
+                        </a>
+                    </li>
+                    <li class="pf-logout">
+                        <a href="<?php echo site_url('web/login/logout');?>">
+                            <i class="fa fa-power-off"></i>
+                            <span class="pf-opt-name">退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <?php }?>
     </div>
@@ -182,7 +210,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="<?php echo site_url('web/search/info/'.$male['Id']); ?>" target="_blank">
-                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
+                <img src="<?php echo base_url('uploads/user/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
@@ -224,7 +252,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="<?php echo site_url('web/search/info/'.$female['Id']); ?>" target="_blank">
-                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?> width="100%" height="100%""/>
+                <img src="<?php echo base_url('uploads/user/'.$female['photo']); ?>" width="100%" height="100%""/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
@@ -266,7 +294,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="<?php echo site_url('web/search/info/'.$male['Id']); ?>" target="_blank">
-                <img src="<?php echo base_url('uploads/user/'.substr($male['photo'], 0, 6).'/'.$male['photo']); ?>" width="100%" height="100%"/>
+                <img src="<?php echo base_url('uploads/user/'.$male['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $male['nickname']; ?></h3>
@@ -307,7 +335,7 @@ body { behavior:url("csshover.htc"); }
         <LI style="margin-bottom: 20px;">
         <div class="boxgrid captionfull"> 
             <a href="<?php echo site_url('web/search/info/'.$female['Id']); ?>" target="_blank">
-                <img src="<?php echo base_url('uploads/user/'.substr($female['photo'], 0, 6).'/'.$female['photo']); ?>" width="100%" height="100%"/>
+                <img src="<?php echo base_url('uploads/user/'.$female['photo']); ?>" width="100%" height="100%"/>
             </a>
             <div class="cover boxcaption">
                 <h3><?php echo $female['nickname']; ?></h3>
@@ -353,7 +381,7 @@ body { behavior:url("csshover.htc"); }
     <UL>
     <?php foreach ($stories as $story){?>
       <LI style="background-size: 100% 100%;height: 265px;">
-        <a href="<?php echo site_url('web/stories/detail/'.$story['id']); ?>" target="_blank"><img src="<?php echo base_url('uploads/stories/'.substr($story['image'], 0, 6).'/'.$story['image']); ?>" /></a>
+        <a href="<?php echo site_url('web/stories/detail/'.$story['id']); ?>" target="_blank"><img src="<?php echo base_url('uploads/stories/'.$story['image']); ?>" /></a>
         <P style="height: 44px;"><?php if(mb_strlen($story['title']) >= 15){echo mb_substr($story['title'], 0, 15).'...';}else{echo $story['title'];}?></P>
         <I>发布于&nbsp;<?php echo $story['time']?></I>
       </LI>

@@ -321,7 +321,61 @@ h3 { padding:4px 7px 1px; 7px; line-height:25px;color: #FFF; font-family:\5b8b\4
 	color: #666;
 }
 
-
+.pf-user {
+	position: relative;
+    float: right;
+    margin-right: 70px;
+    padding: 0 10px;
+    height: 70px;
+    line-height: 70px;
+    cursor: pointer;
+    top: 32px;
+}
+.pf-user .pf-user-photo {
+    float: left;
+    margin: 12px 10px 0 0;
+    width: 48px;
+    height: 48px;
+}
+.pf-user .pf-user-name {
+    float: left;
+    max-width: 150px;
+    color: #000;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.pf-user .xiala {
+    color: #000;
+    line-height: 70px;
+	padding-left: 5px;
+}
+.pf-user .pf-user-panel {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    background: #fff;
+    z-index: 111;
+    border: 1px solid #e1e1e1;
+    box-shadow: 1px 1px 2px #ddd;
+}
+.pf-user .pf-user-panel li {
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    padding: 0 26px;
+    text-align: left;
+}
+.pf-user:hover .pf-user-panel{
+    display: block;
+}
+.pf-user:hover {
+    color: #E9487C;
+}
+.pf-user .pf-user-panel li:hover{
+    background:#f1f1f1
+}
 
 
 

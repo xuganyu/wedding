@@ -16,7 +16,7 @@
 </head>
 <body>
   <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder">新闻图列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+    <div class="panel-head"><strong class="icon-reorder">轮播图列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
     
     <div class="padding border-bottom">
     

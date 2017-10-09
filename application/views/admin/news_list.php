@@ -16,7 +16,7 @@
 </head>
 <body>
   <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder">新闻图列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+    <div class="panel-head"><strong class="icon-reorder">活动列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
     
     <div class="padding border-bottom">
     
@@ -47,7 +47,7 @@
             <?php foreach($list as $item){ ?>
                <tr id="block_<?php echo $item['article_id'];?>">
                     <td><?php echo $i++; ?></td>
-                    <td><a href="<?php echo site_url("admin/news/edit/".$item['article_id']);?>"><?php echo $item["article_title"]; ?></a></td>
+                    <td><a href="<?php echo site_url("admin/news/edit/".$item['article_id']);?>" title="<?php echo $item["article_title"];?>"><?php if(mb_strlen($item["article_title"]) >= 30){ echo mb_substr($item["article_title"],0,30).'...';} else{echo $item["article_title"];} ?></a></td>
                     <td ><?php echo get_show_time($item['article_stime']); ?></td>
                     <td > <?php if($item['types_id']==1){?>全部活动<?php }else{ ?>最新活动<?php } ?></td>
                     <td ><label class="switch" style=" margin:0px 0 -8px;" ><input class="bg-danger" type="checkbox" id="inlineCheckbox_<?php echo $item["article_id"]; ?>" onClick="test('<?php echo $item["article_id"];?>')" name="close_show" value="<?php echo $item['article_close'];?>" <?php if($item["article_close"] == "1"){ ?> checked <?php } ?>><span></span></label></td>
